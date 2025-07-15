@@ -1,0 +1,26 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  margin-right: -1rem;
+  z-index: 10;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6rem;
+  height: 2rem;
+  margin: 0.5rem 0;
+  background: #ffd0e8;
+  clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
+  cursor: pointer;
+  transition: background .2s;
+}
+.tab-btn.active {
+  background: #ff9cc6;
+}
+.tab-btn span {
+  font-weight: bold;
+  color: #5d324d;
+}

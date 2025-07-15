@@ -1,0 +1,64 @@
+.about-page {
+  position: relative;
+  text-align: center;
+  font-family: 'Helvetica', sans-serif;
+  color: #5d324d;
+}
+
+.photo-frame {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem;
+  background: #fff;
+  border: 2px solid #a18cba;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+.photo-frame img {
+  display: block;
+  width: 8rem;
+  border-radius: 0.25rem;
+}
+.tape {
+  position: absolute;
+  width: 2rem;
+  height: 0.5rem;
+  background: #ffb3d1;
+}
+/* posição das fitas */
+.tape.top-left { top: -0.25rem; left: 1rem; transform: rotate(-25deg); }
+.tape.bottom-right { bottom: -0.25rem; right: 1rem; transform: rotate(15deg); }
+
+.subtitle {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.tech-box {
+  background: #fff1e8;
+  border: 2px solid #e8c7b8;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  margin-bottom: 2rem;
+}
+.tech-title {
+  background: #ffd8c4;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  font-weight: bold;
+}
+.tech-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 1.5rem;
+  color: #5d324d;
+}
