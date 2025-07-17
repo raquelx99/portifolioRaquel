@@ -205,8 +205,8 @@ body {
 }
 
 .social-icon {
-  width: 32px;  /* Você pode ajustar este tamanho como desejar */
-  height: 32px; /* Recomendo manter width e height iguais */
+  width: 37px;  /* Você pode ajustar este tamanho como desejar */
+  height: 37px; /* Recomendo manter width e height iguais */
   transition: transform 0.2s ease-in-out; /* Efeito suave ao passar o mouse */
 }
 
@@ -234,6 +234,7 @@ body {
 }
 
 .project-content h3 {
+  text-align: center;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -255,10 +256,13 @@ body {
 }
 
 .project-tags {
+    padding-top: 10px;
+    text-align: center;
     margin-bottom: 15px;
 }
 
 .tag {
+    
     display: inline-block;
     padding: 3px 10px;
     border-radius: 12px;
@@ -267,12 +271,13 @@ body {
     margin-right: 5px;
 }
 
-.tag.front-end { background-color: #61dafb; }
-.tag.back-end { background-color: #764abc; }
+.tag.front-end { background-color: var(--marca-paginas); }
+.tag.back-end { background-color:var(--marca-paginas); }
 
 
 /* !SCROLLABLE DESCRIPTION BOX! */
 .project-description {
+  text-align: center;
   flex-grow: 1; /* Permite que o container cresça */
   max-height: 190px; /* Defina a altura máxima antes do scroll aparecer */
   overflow-y: auto; /* Adiciona scroll vertical apenas quando necessário */
