@@ -6,7 +6,7 @@
   --notebook-bg: #fff;
   --primary-pink: #FA9DB0;
   --marca-paginas: #FFB0C9;
-  --secondary-pink: #f2a2e8;
+  --secondary-pink: #faaabb;
   --text-color: #555;
   --header-color: #333;
   --skills-bg: #feefc2;
@@ -274,7 +274,6 @@ body {
 .tag.front-end { background-color: var(--marca-paginas); }
 .tag.back-end { background-color:var(--marca-paginas); }
 
-
 /* !SCROLLABLE DESCRIPTION BOX! */
 .project-description {
   text-align: center;
@@ -326,7 +325,7 @@ body {
 /* --- Side Tabs --- */
 .side-tabs {
   position: absolute;
-  top: 80px;
+  top: 70px;
   left: 100%;
   margin-left: -18px;
   display: flex;
@@ -336,8 +335,8 @@ body {
 }
 
 .tab {
-  width: 120px;
-  height: 40px;
+  width: 140px;
+  height: 55px;
   border: none;
   background-color: var(--marca-paginas);
   color: white;
