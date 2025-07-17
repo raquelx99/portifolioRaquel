@@ -14,20 +14,12 @@
   border-radius: 0.5rem;
   margin-bottom: 1rem;
 }
+
 .photo-frame img {
   display: block;
   width: 8rem;
   border-radius: 0.25rem;
 }
-.tape {
-  position: absolute;
-  width: 2rem;
-  height: 0.5rem;
-  background: #ffb3d1;
-}
-/* posição das fitas */
-.tape.top-left { top: -0.25rem; left: 1rem; transform: rotate(-25deg); }
-.tape.bottom-right { bottom: -0.25rem; right: 1rem; transform: rotate(15deg); }
 
 .subtitle {
   font-size: 0.9rem;

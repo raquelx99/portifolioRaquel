@@ -4,11 +4,7 @@ import './About.css';
 export default function About() {
   return (
     <div className="about-page">
-      <div className="photo-frame">
         <img src="/Fotinha.png" alt="Raquel Quirino" />
-        <div className="tape top-left" />
-        <div className="tape bottom-right" />
-      </div>
       <h2>Raquel Quirino</h2>
       <p className="subtitle">
         Desenvolvedora de jogos e full‑stack.<br/>

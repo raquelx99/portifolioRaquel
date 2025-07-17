@@ -1,29 +1,356 @@
-.book-container {
-  display: flex;
-  background: #ff9cc6;
-  padding: 2rem;
-  border-radius: 1.5rem;
+/* src/Portfolio.css */
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+:root {
+  --background-color: #fcefee;
+  --notebook-bg: #fff;
+  --primary-pink: #FA9DB0;
+  --marca-paginas: #FFB0C9;
+  --secondary-pink: #f2a2e8;
+  --text-color: #555;
+  --header-color: #333;
+  --skills-bg: #feefc2;
+  --border-color: #f2a2e8;
+  --notebook-spine-bg: #e0e0e0;
 }
 
-.book-pages {
+body {
+  background-color: var(--background-color);
+  font-family: 'Karla', sans-serif;
   display: flex;
-  flex: 1;
-  background: #f4eaf9;
-  border-radius: 1rem;
-  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--text-color);
+}
+
+.portfolio-container {
   position: relative;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.book-cover {
+  background-color: var(--primary-pink);
+  outline: #725A5F;
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  position: relative;
+  width: 90vw;
+  max-width: 1000px;
+  height: 650px;
+}
+
+.back-page {
+  position: absolute;
+  background-color: #E6E0F8; /* Um tom de lilás similar ao protótipo */
+  width: 94%; /* Um pouco maior que as páginas da frente */
+  height: 94%;
+  border-radius: 18px;
+
+  /* Posicionamento (centralizado e um pouco para baixo) */
+  top: 51%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1; /* Camada de baixo */
+}
+
+.notebook {
+  display: flex;
+  background-color: var(--notebook-bg);
+  border-radius: 15px;
+  position: absolute;
+  z-index: 10;
+  
+  width: 90%;
+  height: 93%;
+
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.notebook-spine-container {
+  /* Posicionamento */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+
+  /* Layout para centralizar a imagem */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Largura da área da lombada */
+  width: 68px;
+
+  /* NOVA PROPRIEDADE: Defina uma altura para o contêiner */
+  height: 100%; /* Ou um valor fixo como 500px, teste o que funciona melhor */
+}
+
+.notebook-spine-image {
+  /* Tamanho da sua imagem PNG */
+  max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
+  height: auto;    /* Mantém a proporção da imagem */
 }
 
 .page {
   flex: 1;
-  padding: 2rem;
+  padding: 30px 60px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
   position: relative;
+  overflow: hidden;
+  border-radius: 15px;
 }
 
-.about-wrapper {
-  border-right: 4px solid #e8d1f3;
+/* --- Left Page --- */
+.left-page {
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  padding-bottom: 10px;
 }
 
-.projects-wrapper {
-  /* entra sob a sobreposição do livro atrás */
+.profile-section {
+  margin-bottom: 25px;
+}
+
+.profile-section .avatar-container {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.avatar {
+  width: 230px;
+  height: 230px;
+  border: 4px solid white;
+}
+
+.left-page h1 {
+  margin: 10px 0 5px 0;
+  color: var(--header-color);
+  font-size: 1.8rem;
+}
+
+.left-page p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.skills-section {
+  width: 90%;
+  border-radius: 15px; /* Arredondamento geral */
+  overflow: hidden;    /* Essencial para que os cantos arredondados das partes internas funcionem */
+  border: 1px solid #EAE1B8; /* Borda sutil em volta de tudo */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sombra suave */
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.skills-header {
+  background-color: var(--skills-bg); /* Sua variável de cor amarela */
+  padding: 12px 15px;
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center;     /* Centraliza verticalmente */
+}
+
+.skills-header h3 {
+  margin: 0;
+  color: var(--header-color);
+  font-size: 1rem;
+}
+
+.skills-section h3 {
+  margin: 0 0 7px 0;
+  color: var(--header-color);
+}
+
+.skills-body {
+  background-color: #fff; /* Fundo branco */
+  padding: 10px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-grow: 1;
+}
+
+.skills-body img {
+  width: 32px;  /* Tamanho desejado para os ícones */
+  height: 32px; /* Mantém a proporção quadrada */
+  object-fit: contain; /* Garante que a imagem se ajuste bem dentro do espaço */
+}
+
+.social-links {
+  padding-top: 10px;
+  display: flex;
+  margin: auto;
+  gap: 30px;
+}
+
+.social-icon {
+  width: 32px;  /* Você pode ajustar este tamanho como desejar */
+  height: 32px; /* Recomendo manter width e height iguais */
+  transition: transform 0.2s ease-in-out; /* Efeito suave ao passar o mouse */
+}
+
+.social-icon:hover {
+  transform: scale(1.15); /* Aumenta um pouco o ícone */
+  opacity: 0.9;
+}
+
+/* --- Right Page --- */
+.right-page {
+  position: relative;
+  padding-top: 70px;
+  padding-bottom: 30px;
+  align-items: center;
+}
+
+.right-page h2 {
+  text-align: center;
+  color: var(--header-color);
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.project-content h3 {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 15px 0 10px 0;
+  color: var(--header-color);
+}
+
+.project-media {
+  width: 100%;
+  height: 200px;
+  background-color: #fff7f9;
+  border-radius: 10px;
+  border: 2px dashed var(--primary-pink);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  color: var(--primary-pink);
+}
+
+.project-tags {
+    margin-bottom: 15px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    color: white;
+    margin-right: 5px;
+}
+
+.tag.front-end { background-color: #61dafb; }
+.tag.back-end { background-color: #764abc; }
+
+
+/* !SCROLLABLE DESCRIPTION BOX! */
+.project-description {
+  flex-grow: 1; /* Permite que o container cresça */
+  max-height: 190px; /* Defina a altura máxima antes do scroll aparecer */
+  overflow-y: auto; /* Adiciona scroll vertical apenas quando necessário */
+  padding-right: 10px; /* Espaço para a barra de rolagem não cobrir o texto */
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.project-description p, .project-description ul {
+    margin-bottom: 1em;
+}
+.project-description ul {
+    padding-left: 20px;
+}
+
+.project-navigation {
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.project-navigation button {
+    background: none;
+    border: 1px solid var(--primary-pink);
+    color: var(--primary-pink);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s;
+}
+
+.project-navigation button:hover:not(:disabled) {
+    background-color: var(--primary-pink);
+    color: white;
+}
+
+.project-navigation button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+
+/* --- Side Tabs --- */
+.side-tabs {
+  position: absolute;
+  top: 80px;
+  left: 100%;
+  margin-left: -18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 2;
+}
+
+.tab {
+  width: 120px;
+  height: 40px;
+  border: none;
+  background-color: var(--marca-paginas);
+  color: white;
+  font-family: 'Karla', sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease-out;
+  clip-path: polygon(0 0, 100% 0, 85% 50%, 100% 100%, 0 100%);
+  padding-right: 15px;
+}
+
+.tab:hover {
+  filter: brightness(1.1);
+}
+
+.tab.active {
+  background-color: var(--secondary-pink);
+  filter: brightness(1);
 }
