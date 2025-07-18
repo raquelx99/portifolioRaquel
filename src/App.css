@@ -15,7 +15,7 @@
 }
 
 body {
-  background-color: var(--background-color);
+  background-color: #fcefee;
   font-family: 'Itim', cursive;
   display: flex;
   justify-content: center;
@@ -23,6 +23,83 @@ body {
   min-height: 100vh;
   margin: 0;
   color: var(--text-color);
+}
+
+.background-shapes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Joga para trás de todo o conteúdo */
+}
+
+css
+/* Estilos para o contêiner do fundo */
+.background-shapes {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: -1;
+}
+
+.blob {
+position: absolute;
+opacity: 1;
+}
+
+/* Ajustando as formas para ficarem maiores, menos numerosas e posicionadas nos cantos */
+
+.blob-1 {
+width: 700px;
+height: 500px;
+top: -100px;
+left: -200px;
+background-color: #FED8AE;
+border: 2px solid #BB78A7;
+transform: rotate(-15deg);
+}
+
+.blob-2 {
+width: 700px;
+height: 450px;
+bottom: -150px;
+left: -130px;
+background-color: #BDC1DF;
+border: 2px solid #BB78A7;
+transform: rotate(25deg);
+}
+
+.blob-4 {
+width: 700px;
+height: 450px;
+top: -80px;
+right: -150px;
+background-color: #BDC1DF;
+border: 2px solid #BB78A7;
+transform: rotate(10deg);
+}
+
+.blob-3 {
+width: 650px;
+height: 660px;
+bottom: -200px;
+right: -20px;
+background-color: #FFA7C0;
+border: 2px solid #BB78A7;
+transform: rotate(25deg);
+}
+
+.blob-5 {
+width: 700px;
+height: 500px;
+top: -100px;
+left: 500px;
+background-color: #FFA7C0;
+border: 2px solid #BB78A7;
+transform: rotate(-15deg);
 }
 
 .notebook h1,
@@ -42,7 +119,7 @@ body {
   outline: #725A5F;
   padding: 20px;
   border-radius: 25px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(70, 35, 35, 0.2);
   z-index: 1;
   position: relative;
   width: 90vw;
@@ -62,13 +139,12 @@ body {
   top: 51%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 10; /* Camada de baixo */
-  border: 2px solid #725A6E;
+  z-index: 3; /* Camada de baixo */
+  border: 1px solid #725A6E;
 }
 
 .notebook {
   display: flex;
-  background-color: var(--notebook-bg);
   border-radius: 15px;
   position: absolute;
   z-index: 10;
@@ -111,7 +187,8 @@ body {
 
 .page {
   flex: 1;
-  padding: 30px 60px;
+  background-color: var(--notebook-bg);
+  padding: 30px 40px;
   padding-top: 40px;
   padding-bottom: 40px;
   display: flex;
@@ -232,6 +309,7 @@ body {
   padding-bottom: 30px;
   z-index: 10;
   border: 2px solid #725A6E;
+  align-items: stretch;
 }
 
 .right-page h2 {
@@ -240,8 +318,6 @@ body {
   font-size: 1.2rem;
   letter-spacing: 2px;
   margin-top: 0;
-  padding-bottom: 10px;
-  border-bottom: 2px solid var(--border-color);
 }
 
 .project-content h3 {
@@ -278,7 +354,7 @@ body {
     display: inline-block;
     padding: 3px 10px;
     border-radius: 12px;
-    font-size: 0.8em;
+    font-size: 0.9rem;
     color: white;
     margin-right: 5px;
 }
@@ -315,7 +391,7 @@ body {
 .project-content {
     width: 100%;
     /* Adicione um padding lateral para que o texto não cole nas setas */
-    padding: 0 40px; 
+    padding: 0 25px; 
 }
 
 /* Estilo base para as duas setas */
@@ -344,48 +420,43 @@ body {
 
 /* Posição específica para cada seta */
 .nav-arrow.prev {
-  left: -10px; /* Posição da seta esquerda */
+  z-index: inherit;
+  left: -25px; /* Posição da seta esquerda */
 }
 
 .nav-arrow.next {
-  right: -10px; /* Posição da seta direita */
-}
-
-/* --- Side Tabs --- */
-.side-tabs {
-  position: absolute;
-  top: 70px;
-  left: 100%;
-  margin-left: -18px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 5;
+  right: -25px; /* Posição da seta direita */
 }
 
 .tab {
-  width: 150px;
-  height: 62px;
+  position: absolute;
+  left: 100%;
+  margin-left: -80px;
+  width: 140px;
+  height: 60px;
+  border: none;
   background-color: var(--marca-paginas);
   color: var(--text-color);
   font-family: 'Itim', cursive;
   font-weight: bold;
   font-size: 1rem;
   cursor: pointer;
-  position: relative;
-  transition: background-color 0.2s ease-out;
   clip-path: polygon(0 0, 100% 0, 85% 50%, 100% 100%, 0 100%);
+  border-radius: 5px;
   padding-right: 15px;
+  transition: all 0.2s ease-out;
   border: 2px solid #725A6E;
-  z-index: 5;
+  z-index: 5; /* POR PADRÃO, FICA ATRÁS DO NOTEBOOK (z-index: 10) */
 }
 
-.tab:hover {
+.tab:hover:not(.active) {
+  transform: translateX(-5px);
   filter: brightness(1.1);
 }
 
+/* A CAMADA ATIVA: NA FRENTE DO LIVRO */
 .tab.active {
   background-color: var(--secondary-pink);
-  z-index: 15;
-  filter: brightness(1);
+  transform: translateX(-10px);
+  z-index: 15; /* Maior que o z-index: 10 do .notebook */
 }
