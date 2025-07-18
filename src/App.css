@@ -31,11 +31,9 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Joga para trás de todo o conteúdo */
+  z-index: -1;
 }
 
-css
-/* Estilos para o contêiner do fundo */
 .background-shapes {
 position: fixed;
 top: 0;
@@ -49,8 +47,6 @@ z-index: -1;
 position: absolute;
 opacity: 1;
 }
-
-/* Ajustando as formas para ficarem maiores, menos numerosas e posicionadas nos cantos */
 
 .blob-1 {
 width: 700px;
@@ -130,16 +126,14 @@ transform: rotate(-15deg);
 
 .back-page {
   position: absolute;
-  background-color: var(--notebook-bg); /* Um tom de lilás similar ao protótipo */
-  width: 94%; /* Um pouco maior que as páginas da frente */
+  background-color: var(--notebook-bg);
+  width: 94%;
   height: 94%;
   border-radius: 18px;
-
-  /* Posicionamento (centralizado e um pouco para baixo) */
   top: 51%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 3; /* Camada de baixo */
+  z-index: 3; 
   border: 1px solid #725A6E;
 }
 
@@ -159,7 +153,6 @@ transform: rotate(-15deg);
 }
 
 .notebook-spine-container {
-  /* Posicionamento */
   position: absolute;
   top: 0;
   bottom: 0;
@@ -167,22 +160,18 @@ transform: rotate(-15deg);
   transform: translateX(-50%);
   z-index: 15;
 
-  /* Layout para centralizar a imagem */
   display: flex;
   align-items: center;
   justify-content: center;
 
-  /* Largura da área da lombada */
   width: 69px;
 
-  /* NOVA PROPRIEDADE: Defina uma altura para o contêiner */
-  height: 100%; /* Ou um valor fixo como 500px, teste o que funciona melhor */
+  height: 100%; 
 }
 
 .notebook-spine-image {
-  /* Tamanho da sua imagem PNG */
-  max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
-  height: auto;    /* Mantém a proporção da imagem */
+  max-width: 100%;
+  height: auto;  
 }
 
 .page {
@@ -199,7 +188,6 @@ transform: rotate(-15deg);
   z-index: 10;
 }
 
-/* --- Left Page --- */
 .left-page {
   align-items: center;
   text-align: center;
@@ -238,21 +226,21 @@ transform: rotate(-15deg);
 
 .skills-section {
   width: 90%;
-  border-radius: 15px; /* Arredondamento geral */
-  overflow: hidden;    /* Essencial para que os cantos arredondados das partes internas funcionem */
+  border-radius: 15px;
+  overflow: hidden;
   border: 2px solid #725A6E;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sombra suave */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   display: flex;
   flex-direction: column;
   align-self: center;
 }
 
 .skills-header {
-  background-color: var(--skills-bg); /* Sua variável de cor amarela */
+  background-color: var(--skills-bg);
   padding: 12px 15px;
   display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center;     /* Centraliza verticalmente */
+  justify-content: center;
+  align-items: center; 
 }
 
 .skills-header h3 {
@@ -267,7 +255,7 @@ transform: rotate(-15deg);
 }
 
 .skills-body {
-  background-color: #fff; /* Fundo branco */
+  background-color: #fff;
   padding: 10px 10px;
   display: flex;
   flex-wrap: wrap;
@@ -279,9 +267,9 @@ transform: rotate(-15deg);
 }
 
 .skills-body img {
-  width: 32px;  /* Tamanho desejado para os ícones */
-  height: 32px; /* Mantém a proporção quadrada */
-  object-fit: contain; /* Garante que a imagem se ajuste bem dentro do espaço */
+  width: 32px; 
+  height: 32px; 
+  object-fit: contain; 
 }
 
 .social-links {
@@ -292,17 +280,16 @@ transform: rotate(-15deg);
 }
 
 .social-icon {
-  width: 37px;  /* Você pode ajustar este tamanho como desejar */
-  height: 37px; /* Recomendo manter width e height iguais */
-  transition: transform 0.2s ease-in-out; /* Efeito suave ao passar o mouse */
+  width: 37px; 
+  height: 37px; 
+  transition: transform 0.2s ease-in-out;
 }
 
 .social-icon:hover {
-  transform: scale(1.15); /* Aumenta um pouco o ícone */
+  transform: scale(1.15);
   opacity: 0.9;
 }
 
-/* --- Right Page --- */
 .right-page {
   position: relative;
   padding-top: 70px;
@@ -315,7 +302,7 @@ transform: rotate(-15deg);
 .right-page h2 {
   text-align: center;
   color: var(--header-color);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   letter-spacing: 2px;
   margin-top: 0;
 }
@@ -362,13 +349,13 @@ transform: rotate(-15deg);
 .tag.front-end { background-color: var(--marca-paginas); }
 .tag.back-end { background-color:var(--marca-paginas); }
 
-/* !SCROLLABLE DESCRIPTION BOX! */
 .project-description {
   text-align: center;
-  flex-grow: 1; /* Permite que o container cresça */
-  max-height: 190px; /* Defina a altura máxima antes do scroll aparecer */
-  overflow-y: auto; /* Adiciona scroll vertical apenas quando necessário */
-  padding-right: 10px; /* Espaço para a barra de rolagem não cobrir o texto */
+  color: var(--text-color);
+  flex-grow: 1;
+  max-height: 190px;
+  overflow-y: auto; 
+  padding-right: 10px;
   font-size: 0.9rem;
   line-height: 1.7;
 }
@@ -380,32 +367,28 @@ transform: rotate(-15deg);
 }
 
 .project-display-area {
-  position: relative; /* Essencial! Torna este o 'pai' para o posicionamento absoluto das setas */
+  position: relative; 
   flex-grow: 1;
   width: 100%;
   display: flex;
-  align-items: center; /* Centraliza o conteúdo principal verticalmente */
+  align-items: center; 
 }
 
-/* O conteúdo do projeto agora ocupa o espaço central */
 .project-content {
     width: 100%;
-    /* Adicione um padding lateral para que o texto não cole nas setas */
-    padding: 0 25px; 
+    padding: 0 25px 20px; 
 }
 
-/* Estilo base para as duas setas */
 .nav-arrow {
-  position: absolute; /* Posicionamento "flutuante" em relação ao pai */
-  top: 40%; /* Alinha o topo da seta no meio vertical */
-  transform: translateY(-50%); /* Ajuste fino para centralizar a seta perfeitamente */
-  /* Estilo visual */
+  position: absolute; 
+  top: 40%; 
+  transform: translateY(-50%);
   background: none;
   border: none;
   color: var(--text-color);
   font-size: 1.5rem;
   cursor: pointer;
-  z-index: 30; /* Garante que a seta fique na frente de tudo */
+  z-index: 30;
   transition: color 0.2s;
 }
 
@@ -418,14 +401,13 @@ transform: rotate(-15deg);
   cursor: not-allowed;
 }
 
-/* Posição específica para cada seta */
 .nav-arrow.prev {
   z-index: inherit;
-  left: -25px; /* Posição da seta esquerda */
+  left: -25px; 
 }
 
 .nav-arrow.next {
-  right: -25px; /* Posição da seta direita */
+  right: -25px; 
 }
 
 .tab {
@@ -446,7 +428,7 @@ transform: rotate(-15deg);
   padding-right: 15px;
   transition: all 0.2s ease-out;
   border: 2px solid #725A6E;
-  z-index: 5; /* POR PADRÃO, FICA ATRÁS DO NOTEBOOK (z-index: 10) */
+  z-index: 5; 
 }
 
 .tab:hover:not(.active) {
@@ -454,9 +436,8 @@ transform: rotate(-15deg);
   filter: brightness(1.1);
 }
 
-/* A CAMADA ATIVA: NA FRENTE DO LIVRO */
 .tab.active {
   background-color: var(--secondary-pink);
   transform: translateX(-10px);
-  z-index: 15; /* Maior que o z-index: 10 do .notebook */
+  z-index: 15; 
 }

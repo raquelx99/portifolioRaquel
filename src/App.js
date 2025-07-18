@@ -1,6 +1,6 @@
 // src/App.js
 import React, { useState } from 'react';
-import './App.css'; // Mude para './Portfolio.css' se for o nome que você está usando
+import './App.css';
 import { portfolioData } from './data';
 
 function App() {
@@ -45,11 +45,9 @@ function App() {
         <div className="back-page"></div>
         
         <div className="notebook">
-          {/* Left Page */}
           <div className="page left-page">
             <div className="profile-section">
               <div className="avatar-container">
-                {/* As fitas decorativas não precisam estar no código, podem ser parte da imagem do avatar se desejar */}
                 <img src="/Fotinha.png" alt="Raquel Quirino" className="avatar" />
               </div>
               <h1>{profile.name}</h1>
@@ -84,12 +82,10 @@ function App() {
             </div>
           </div>
 
-          {/* Notebook Spine - Filho do Notebook para se mover com ele */}
           <div className="notebook-spine-container">
             <img src="./Alça.png" alt="Lombada do caderno" className="notebook-spine-image"/>
           </div>
 
-          {/* Right Page */}
           <div className="page right-page">
             <h2>{categoryTitles[activeCategory]}</h2>
             <div className="project-display-area">
