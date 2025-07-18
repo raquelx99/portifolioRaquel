@@ -106,30 +106,50 @@ function App() {
           {/* Right Page */}
           <div className="page right-page">
             <h2>{categoryTitles[activeCategory]}</h2>
-            <div className="project-content">
-              <div className="project-media">
-                ▶
-              </div>
-              <h3>{currentProject.title}</h3>
-              {currentProject.tags.length > 0 && (
-                  <div className="project-tags">
-                      {currentProject.tags.map(tag => <span key={tag} className={`tag ${tag.toLowerCase()}`}>{tag}</span>)}
-                  </div>
-              )}
-              
-              {/* ESTA É A DIV COM SCROLL */}
-              <div 
-                  className="project-description" 
-                  dangerouslySetInnerHTML={{ __html: currentProject.description }}
-              >
-              </div>
+
+            {/* ▼ SUBSTITUA O CONTEÚDO ANTIGO POR ESTE NOVO BLOCO ▼ */}
+
+            <div className="project-display-area">
+                {/* Seta da Esquerda */}
+                <button 
+                    onClick={handlePrevProject} 
+                    disabled={projects.length <= 1} 
+                    className="nav-arrow prev"
+                >
+                    &#9664;
+                </button>
+
+                {/* Conteúdo principal do projeto */}
+                <div className="project-content">
+                    <div className="project-media">
+                        ▶
+                    </div>
+                    <h3>{currentProject.title}</h3>
+                    {currentProject.tags.length > 0 && (
+                        <div className="project-tags">
+                            {currentProject.tags.map(tag => <span key={tag} className={`tag ${tag.toLowerCase()}`}>{tag}</span>)}
+                        </div>
+                    )}
+                    <div
+                        className="project-description"
+                        dangerouslySetInnerHTML={{ __html: currentProject.description }}
+                    >
+                    </div>
+                </div>
+
+                {/* Seta da Direita */}
+                <button 
+                    onClick={handleNextProject} 
+                    disabled={projects.length <= 1} 
+                    className="nav-arrow next"
+                >
+                    &#9654;
+                </button>
             </div>
-            
-            <div className="project-navigation">
-                <button onClick={handlePrevProject} disabled={projects.length <= 1}>&#9664;</button>
-                <button onClick={handleNextProject} disabled={projects.length <= 1}>&#9654;</button>
-            </div>
-          </div>
+
+            {/* ▲ FIM DO BLOCO DE SUBSTITUIÇÃO ▲ */}
+            {/* Perceba que o <div className="project-navigation"> antigo foi removido */}
+        </div>
         </div>
       </div>
     </div>

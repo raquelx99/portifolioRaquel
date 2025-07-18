@@ -3,26 +3,32 @@
 
 :root {
   --background-color: #fcefee;
-  --notebook-bg: #fff;
+  --notebook-bg: #F8F0FB;
   --primary-pink: #FA9DB0;
   --marca-paginas: #FFB0C9;
-  --secondary-pink: #faaabb;
-  --text-color: #555;
+  --secondary-pink: #ffa2c0;
+  --text-color: #513E4E;
   --header-color: #333;
-  --skills-bg: #feefc2;
+  --skills-bg: #FFD6A7;
   --border-color: #f2a2e8;
   --notebook-spine-bg: #e0e0e0;
 }
 
 body {
   background-color: var(--background-color);
-  font-family: 'Karla', sans-serif;
+  font-family: 'Itim', cursive;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   margin: 0;
   color: var(--text-color);
+}
+
+.notebook h1,
+.notebook h2,
+.notebook h3 {
+  font-weight: 400;
 }
 
 .portfolio-container {
@@ -40,13 +46,14 @@ body {
   z-index: 1;
   position: relative;
   width: 90vw;
-  max-width: 1000px;
+  max-width: 1100px;
   height: 650px;
+  border: 1px solid #725A5F;
 }
 
 .back-page {
   position: absolute;
-  background-color: #E6E0F8; /* Um tom de lilás similar ao protótipo */
+  background-color: var(--notebook-bg); /* Um tom de lilás similar ao protótipo */
   width: 94%; /* Um pouco maior que as páginas da frente */
   height: 94%;
   border-radius: 18px;
@@ -55,7 +62,8 @@ body {
   top: 51%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1; /* Camada de baixo */
+  z-index: 10; /* Camada de baixo */
+  border: 2px solid #725A6E;
 }
 
 .notebook {
@@ -81,7 +89,7 @@ body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 20;
+  z-index: 15;
 
   /* Layout para centralizar a imagem */
   display: flex;
@@ -89,7 +97,7 @@ body {
   justify-content: center;
 
   /* Largura da área da lombada */
-  width: 68px;
+  width: 69px;
 
   /* NOVA PROPRIEDADE: Defina uma altura para o contêiner */
   height: 100%; /* Ou um valor fixo como 500px, teste o que funciona melhor */
@@ -111,6 +119,7 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 15px;
+  z-index: 10;
 }
 
 /* --- Left Page --- */
@@ -121,6 +130,7 @@ body {
   flex-direction: column;
   padding-top: 30px;
   padding-bottom: 10px;
+  border: 2px solid #725A6E;
 }
 
 .profile-section {
@@ -135,7 +145,6 @@ body {
 .avatar {
   width: 230px;
   height: 230px;
-  border: 4px solid white;
 }
 
 .left-page h1 {
@@ -146,7 +155,7 @@ body {
 
 .left-page p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.4;
 }
 
@@ -154,7 +163,7 @@ body {
   width: 90%;
   border-radius: 15px; /* Arredondamento geral */
   overflow: hidden;    /* Essencial para que os cantos arredondados das partes internas funcionem */
-  border: 1px solid #EAE1B8; /* Borda sutil em volta de tudo */
+  border: 2px solid #725A6E;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sombra suave */
   display: flex;
   flex-direction: column;
@@ -172,7 +181,7 @@ body {
 .skills-header h3 {
   margin: 0;
   color: var(--header-color);
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 
 .skills-section h3 {
@@ -189,6 +198,7 @@ body {
   align-items: center;
   gap: 15px;
   flex-grow: 1;
+  outline: 2px solid #725A6E;
 }
 
 .skills-body img {
@@ -220,7 +230,8 @@ body {
   position: relative;
   padding-top: 70px;
   padding-bottom: 30px;
-  align-items: center;
+  z-index: 10;
+  border: 2px solid #725A6E;
 }
 
 .right-page h2 {
@@ -235,6 +246,7 @@ body {
 
 .project-content h3 {
   text-align: center;
+  font-size: 1.4rem;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -291,36 +303,53 @@ body {
     padding-left: 20px;
 }
 
-.project-navigation {
-    position: absolute;
-    right: 30px;
-    bottom: 20px;
-    display: flex;
-    gap: 10px;
+.project-display-area {
+  position: relative; /* Essencial! Torna este o 'pai' para o posicionamento absoluto das setas */
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  align-items: center; /* Centraliza o conteúdo principal verticalmente */
 }
 
-.project-navigation button {
-    background: none;
-    border: 1px solid var(--primary-pink);
-    color: var(--primary-pink);
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 16px;
-    transition: all 0.2s;
+/* O conteúdo do projeto agora ocupa o espaço central */
+.project-content {
+    width: 100%;
+    /* Adicione um padding lateral para que o texto não cole nas setas */
+    padding: 0 40px; 
 }
 
-.project-navigation button:hover:not(:disabled) {
-    background-color: var(--primary-pink);
-    color: white;
+/* Estilo base para as duas setas */
+.nav-arrow {
+  position: absolute; /* Posicionamento "flutuante" em relação ao pai */
+  top: 40%; /* Alinha o topo da seta no meio vertical */
+  transform: translateY(-50%); /* Ajuste fino para centralizar a seta perfeitamente */
+  /* Estilo visual */
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 30; /* Garante que a seta fique na frente de tudo */
+  transition: color 0.2s;
 }
 
-.project-navigation button:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
+.nav-arrow:hover:not(:disabled) {
+  color: var(--primary-pink);
 }
 
+.nav-arrow:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Posição específica para cada seta */
+.nav-arrow.prev {
+  left: -10px; /* Posição da seta esquerda */
+}
+
+.nav-arrow.next {
+  right: -10px; /* Posição da seta direita */
+}
 
 /* --- Side Tabs --- */
 .side-tabs {
@@ -331,16 +360,15 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  z-index: 2;
+  z-index: 5;
 }
 
 .tab {
-  width: 140px;
-  height: 55px;
-  border: none;
+  width: 150px;
+  height: 62px;
   background-color: var(--marca-paginas);
-  color: white;
-  font-family: 'Karla', sans-serif;
+  color: var(--text-color);
+  font-family: 'Itim', cursive;
   font-weight: bold;
   font-size: 1rem;
   cursor: pointer;
@@ -348,6 +376,8 @@ body {
   transition: background-color 0.2s ease-out;
   clip-path: polygon(0 0, 100% 0, 85% 50%, 100% 100%, 0 100%);
   padding-right: 15px;
+  border: 2px solid #725A6E;
+  z-index: 5;
 }
 
 .tab:hover {
@@ -356,5 +386,6 @@ body {
 
 .tab.active {
   background-color: var(--secondary-pink);
+  z-index: 15;
   filter: brightness(1);
 }
