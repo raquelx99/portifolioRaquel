@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import { portfolioData } from './data';
 import MusicPlayer from './Components/MusicPlayer.jsx';
+import Stars from './Components/Stars.jsx';
 
 function App() {
   const [activeCategory, setActiveCategory] = useState('JOGOS');
@@ -32,14 +33,7 @@ function App() {
 
   return (
     <>
-    <div className="background-shapes">
-        <div className="blob blob-1"></div>
-        <div className="blob blob-2"></div>
-        <div className="blob blob-3"></div>
-        <div className="blob blob-5"></div>
-        <div className="blob blob-4"></div>
-    </div>
-
+    < Stars />
     <div className="portfolio-container">
       <div className="book-cover">
         <div className="back-page"></div>
