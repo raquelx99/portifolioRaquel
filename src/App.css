@@ -1,4 +1,3 @@
-/* src/Portfolio.css */
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
 
 :root {
@@ -24,6 +23,14 @@ body {
   margin: 0;
   color: var(--text-color);
 }
+
+.notebook h1,
+.notebook h2,
+.notebook h3 {
+  font-weight: 400;
+}
+
+/* Fundo */
 
 .background-shapes {
   position: fixed;
@@ -98,11 +105,7 @@ border: 2px solid #BB78A7;
 transform: rotate(-15deg);
 }
 
-.notebook h1,
-.notebook h2,
-.notebook h3 {
-  font-weight: 400;
-}
+/* Organização geral */
 
 .portfolio-container {
   position: relative;
@@ -151,6 +154,8 @@ transform: rotate(-15deg);
   transform: translate(-50%, -50%);
   z-index: 10;
 }
+
+/* Alça */
 
 .notebook-spine-container {
   position: absolute;
@@ -225,7 +230,7 @@ transform: rotate(-15deg);
 }
 
 .skills-section {
-  width: 90%;
+  width: 80%;
   border-radius: 15px;
   overflow: hidden;
   border: 2px solid #725A6E;
@@ -267,8 +272,8 @@ transform: rotate(-15deg);
 }
 
 .skills-body img {
-  width: 32px; 
-  height: 32px; 
+  width: 38px; 
+  height: 38px; 
   object-fit: contain; 
 }
 
@@ -289,6 +294,8 @@ transform: rotate(-15deg);
   transform: scale(1.15);
   opacity: 0.9;
 }
+
+/* pagina direita */
 
 .right-page {
   position: relative;
@@ -409,6 +416,8 @@ transform: rotate(-15deg);
 .nav-arrow.next {
   right: -25px; 
 }
+
+/* marca-paginas */
 
 .tab {
   position: absolute;

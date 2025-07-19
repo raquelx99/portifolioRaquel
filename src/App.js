@@ -1,7 +1,7 @@
-// src/App.js
 import React, { useState } from 'react';
 import './App.css';
 import { portfolioData } from './data';
+import MusicPlayer from './Components/MusicPlayer.jsx';
 
 function App() {
   const [activeCategory, setActiveCategory] = useState('JOGOS');
@@ -121,6 +121,7 @@ function App() {
 
       </div>
     </div>
+    <MusicPlayer />
     </>
   );
 }
