@@ -3,6 +3,7 @@ import './App.css';
 import { portfolioData } from './data';
 import MusicPlayer from './Components/MusicPlayer.jsx';
 import Stars from './Components/Stars.jsx';
+import DriveButton from './Components/DriveButton.jsx';
 
 function App() {
   const [activeCategory, setActiveCategory] = useState('JOGOS');
@@ -115,6 +116,7 @@ function App() {
 
       </div>
     </div>
+    <DriveButton href={"https://drive.google.com/drive/folders/1-0YsYVJTUGH-wTqJiZqMHwOrWV2u1zHv?hl=pt-br"} />
     <MusicPlayer />
     </>
   );
