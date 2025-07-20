@@ -21,8 +21,9 @@
 
 .star {
   position: absolute;
-  background-color: #FFC1D5;
+  background-color: #FCB1C8;
+  border: 1px solid #FD7B9A;
   border-radius: 50%;
   box-shadow: 0 0 8px 2px rgba(255, 193, 213, 0.7);
-  animation: sparkle 5s infinite;
+  animation: sparkle 3s infinite;
 }
