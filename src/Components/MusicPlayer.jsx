@@ -29,7 +29,7 @@ export default function MusicPlayer() {
         setCurrentImage((prevImage) =>
           prevImage === imageAnim1 ? imageAnim2 : imageAnim1
         );
-      }, 200);
+      }, 400);
     }
   };
 
