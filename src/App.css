@@ -310,9 +310,9 @@ body {
 }
 
 .technologiesSection {
-  position: relative; /* Essencial para posicionar os filhos */
-  margin-top: 20px;   /* Espaço acima da seção */
-  padding-bottom: 20px; /* Espaço para o "chão" aparecer */
+  position: relative; 
+  margin-top: 20px;  
+  padding-bottom: 20px;
   text-align: center;
 }
 
@@ -322,7 +322,7 @@ body {
 }
 
 .techIconsContainer {
-  position: relative; /* Fica na frente da imagem de fundo */
+  position: relative; 
   z-index: 2;
   display: flex;
   justify-content: center;
@@ -333,18 +333,18 @@ body {
 }
 
 .techIcon {
-  width: 40px;  /* Tamanho dos ícones de tecnologia */
+  width: 40px; 
   height: 40px;
   object-fit: contain;
 }
 
 .techImage {
-  display: block; /* Comportamento de bloco padrão */
-  width: 70%;    /* Ocupa a largura total */
-  height: 40%;   /* Mantém a proporção */
-  margin-top: -30px; /* TRUQUE: Puxa a imagem para CIMA, para debaixo dos ícones */
-  position: relative; /* Necessário para o z-index funcionar */
-  z-index: 1;        /* Garante que a imagem fique ATRÁS dos ícones */
+  display: block; 
+  width: 70%;    
+  height: 40%;   
+  margin-top: -30px; 
+  position: relative; 
+  z-index: 1;        
 }
 
 .nav-arrow {
