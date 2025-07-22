@@ -54,16 +54,17 @@ function App() {
                 <h3>Linguagens e ferramentas</h3>
               </div>
               <div className="skills-body">
-                  <img src="/image 4.svg" alt="Ícone do C++" />
-                  <img src="/image 3.svg" alt="Ícone do C#" />
-                  <img src="/image 5.svg" alt="Ícone do Angular" />
-                  <img src="/image 6.svg" alt="Ícone do React" />
-                  <img src="/image 7.svg" alt="Ícone do TypeScript" />
-                  <img src="/image 8.svg" alt="Ícone do JavaScript" />
-                  <img src="/image 10.svg" alt="Ícone do Java" />
-                  <img src="/image 9.svg" alt="Ícone do Unity" />
-                  <img src="/image 11.svg" alt="Ícone do Godot" />
-                  <img src="/image 12.svg" alt="Ícone do Game Maker" />
+                  <img src="/c-sharp.svg" alt="Ícone do C++" />
+                  <img src="/c++.svg" alt="Ícone do C#" />
+                  <img src="/angular.svg" alt="Ícone do Angular" />
+                  <img src="/react.svg" alt="Ícone do React" />
+                  <img src="/typescript.svg" alt="Ícone do TypeScript" />
+                  <img src="/javascript.svg" alt="Ícone do JavaScript" />
+                  <img src="/java.svg" alt="Ícone do Java" />
+                  <img src="/unity.svg" alt="Ícone do Unity" />
+                  <img src="/godot.svg" alt="Ícone do Godot" />
+                  <img src="/game-maker.svg" alt="Ícone do Game Maker" />
+                  <img src="/kotlin.svg" alt="Ícone do Kotlin" />
               </div>
             </div>
             
@@ -93,10 +94,26 @@ function App() {
                     {currentProject.tags.map(tag => <span key={tag} className={`tag ${tag.toLowerCase()}`}>{tag}</span>)}
                   </div>
                 )}
-                <div
-                  className="project-description"
-                  dangerouslySetInnerHTML={{ __html: currentProject.description }}
-                ></div>
+                <div className="project-description">
+                  <div dangerouslySetInnerHTML={{ __html: currentProject.description }}></div>
+
+                  {currentProject.technologies && currentProject.technologies.length > 0 && (
+                  <div className="technologiesSection">
+                    <h4 className="techTitle">Tecnologias Utilizadas</h4>
+                    <div className="techIconsContainer">
+                      {currentProject.technologies.map((iconName, index) => (
+                        <img
+                          key={index}
+                          src={`/${iconName}`}
+                          alt={iconName.split('.')[0]}
+                          className="techIcon"
+                        />
+                      ))}
+                    </div>
+                    <img src={'/ShowTecs.svg'} alt="" className="techImage" />
+                  </div>
+                )}
+                </div>
               </div>
               <button onClick={handleNextProject} disabled={projects.length <= 1} className="nav-arrow next">&#9654;</button>
             </div>

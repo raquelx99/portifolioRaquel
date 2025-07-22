@@ -1,5 +1,3 @@
-// src/data.js
-
 export const portfolioData = {
   profile: {
     name: "Raquel Quirino",
@@ -20,7 +18,11 @@ export const portfolioData = {
             <li>Sistema de Roleta Interativa: Uma roleta com diferentes resultados foi criada utilizando física via Rigidbody2D para girar e parar suavemente.</li>
             <li>Animações de UI: Transições suaves e feedback visual para interações do usuário.</li>
           </ul>
-        `
+        `,
+        technologies: [
+          'c-sharp.svg', // Use o nome exato do arquivo do ícone
+          'unity.svg'
+        ]
       },
       {
         id: 2,
@@ -29,7 +31,11 @@ export const portfolioData = {
         description: `
           <p>Um jogo de ficção científica com forte componente psicológico, cuja mecânica central é a alternância entre duas realidades contrastantes. O jogador transita constantemente entre: uma nave espacial futurística, uma casa antiga e abandonada.</p>
           <p>Ao alternar entre esses dois mundos, o jogador deve coletar fragmentos de memória, decifrar códigos e solucionar puzzles que conectam passado e futuro, desvendando o mistério por trás de uma catástrofe temporal. A cada troca de realidade, novas peças da narrativa se revelam, exigindo atenção aos detalhes e raciocínio integrado para avançar na história até o seu desfecho.</p>
-        `
+        `,
+        technologies: [
+          'c-sharp.svg', 
+          'unity.svg'
+        ]
       }
     ],
     WEB: [
@@ -46,7 +52,12 @@ export const portfolioData = {
             <li>Geração de carteirinha digital com QR Code.</li>
             <li>Agendamento e visualização de horários das quadras.</li>
           </ul>
-        `
+        `,
+        technologies: [
+          'angular.svg',
+          'typescript.svg',
+          'javascript.svg'
+        ]
       }
     ],
     MOBILE: [
@@ -64,7 +75,10 @@ export const portfolioData = {
             <li>Definição e atualização de imagens de capa;</li>
             <li>Exclusão de comunidades;</li>
           </ul>
-        `
+        `,
+        technologies: [
+          'kotlin.svg',
+        ]
       }
     ]
   }
