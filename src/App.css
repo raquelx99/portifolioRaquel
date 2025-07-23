@@ -335,13 +335,14 @@ body {
 .techIcon {
   width: 40px; 
   height: 40px;
+  padding-bottom: 25px;
   object-fit: contain;
 }
 
 .techImage {
   display: block; 
-  width: 70%;    
-  height: 40%;   
+  width: 100%;    
+  height: 100%;   
   margin-top: -30px; 
   position: relative; 
   z-index: 1;        

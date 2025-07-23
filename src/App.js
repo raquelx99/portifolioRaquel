@@ -110,7 +110,7 @@ function App() {
                         />
                       ))}
                     </div>
-                    <img src={'/ShowTecs.svg'} alt="" className="techImage" />
+                    <img src={'/ShowTechs.svg'} alt="" className="techImage" />
                   </div>
                 )}
                 </div>
