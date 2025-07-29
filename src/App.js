@@ -87,7 +87,17 @@ function App() {
             <div className="project-display-area">
               <button onClick={handlePrevProject} disabled={projects.length <= 1} className="nav-arrow prev">&#9664;</button>
               <div className="project-content">
-                <div className="project-media">▶</div>
+                <div className="project-media">
+                  <div class="video-container">
+                  <iframe
+                    src="https://www.youtube.com/embed/ID_DO_VIDEO"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                </div>
                 <h3>{currentProject.title}</h3>
                 {currentProject.tags.length > 0 && (
                   <div className="project-tags">
