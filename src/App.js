@@ -1,9 +1,15 @@
+// src/App.js
 import React, { useState } from 'react';
 import './App.css';
 import { portfolioData } from './data';
+
 import MusicPlayer from './Components/MusicPlayer.jsx';
 import Stars from './Components/Stars.jsx';
 import DriveButton from './Components/DriveButton.jsx';
+import LeftPage from './Components/LeftPage.jsx';
+import RightPage from './Components/RightPage.jsx';
+import NotebookSpine from './Components/NotebookSpine.jsx';
+import SideTabs from './Components/SideTabs.jsx';
 
 function App() {
   const [activeCategory, setActiveCategory] = useState('JOGOS');
@@ -34,117 +40,31 @@ function App() {
 
   return (
     <>
-    < Stars />
-    <div className="portfolio-container">
-      <div className="book-cover">
-        <div className="back-page"></div>
-        
-        <div className="notebook">
-          <div className="page left-page">
-            <div className="profile-section">
-              <div className="avatar-container">
-                <img src="/Fotinha.png" alt="Raquel Quirino" className="avatar" />
-              </div>
-              <h1>{profile.name}</h1>
-              <p>{profile.title}<br />{profile.subtitle}</p>
-            </div>
-            
-            <div className="skills-section">
-              <div className="skills-header">
-                <h3>Linguagens e ferramentas</h3>
-              </div>
-              <div className="skills-body">
-                  <img src="/c-sharp.svg" alt="Ícone do C++" />
-                  <img src="/c++.svg" alt="Ícone do C#" />
-                  <img src="/angular.svg" alt="Ícone do Angular" />
-                  <img src="/react.svg" alt="Ícone do React" />
-                  <img src="/typescript.svg" alt="Ícone do TypeScript" />
-                  <img src="/javascript.svg" alt="Ícone do JavaScript" />
-                  <img src="/java.svg" alt="Ícone do Java" />
-                  <img src="/unity.svg" alt="Ícone do Unity" />
-                  <img src="/godot.svg" alt="Ícone do Godot" />
-                  <img src="/game-maker.svg" alt="Ícone do Game Maker" />
-                  <img src="/kotlin.svg" alt="Ícone do Kotlin" />
-              </div>
-            </div>
-            
-            <div className="social-links">
-              <a href="https://github.com/raquelx99" target="_blank" rel="noopener noreferrer">
-                <img src="/Github.svg" alt="Meu perfil no GitHub" className="social-icon" />
-              </a>
-              <a href="https://www.linkedin.com/in/raquel-albuquerque-93a053328" target="_blank" rel="noopener noreferrer">
-                <img src="/Linkedin.svg" alt="Meu perfil no LinkedIn" className="social-icon" />
-              </a>
-            </div>
+      <Stars />
+      <div className="portfolio-container">
+        <div className="book-cover">
+          <div className="back-page"></div>
+          <div className="notebook">
+            <LeftPage profile={profile} />
+            <NotebookSpine />
+            <RightPage
+              categoryTitles={categoryTitles}
+              activeCategory={activeCategory}
+              currentProject={currentProject}
+              projects={projects}
+              handlePrevProject={handlePrevProject}
+              handleNextProject={handleNextProject}
+            />
           </div>
-
-          <div className="notebook-spine-container">
-            <img src="./Alça.png" alt="Lombada do caderno" className="notebook-spine-image"/>
-          </div>
-
-          <div className="page right-page">
-            <h2>{categoryTitles[activeCategory]}</h2>
-            <div className="project-display-area">
-              <button onClick={handlePrevProject} disabled={projects.length <= 1} className="nav-arrow prev">&#9664;</button>
-              <div className="project-content">
-                <div className="project-media">
-                  <div class="video-container">
-                  <iframe
-                    src="https://www.youtube.com/embed/ID_DO_VIDEO"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-                </div>
-                <h3>{currentProject.title}</h3>
-                {currentProject.tags.length > 0 && (
-                  <div className="project-tags">
-                    {currentProject.tags.map(tag => <span key={tag} className={`tag ${tag.toLowerCase()}`}>{tag}</span>)}
-                  </div>
-                )}
-                <div className="project-description">
-                  <div dangerouslySetInnerHTML={{ __html: currentProject.description }}></div>
-
-                  {currentProject.technologies && currentProject.technologies.length > 0 && (
-                  <div className="technologiesSection">
-                    <h4 className="techTitle">Tecnologias Utilizadas</h4>
-                    <div className="techIconsContainer">
-                      {currentProject.technologies.map((iconName, index) => (
-                        <img
-                          key={index}
-                          src={`/${iconName}`}
-                          alt={iconName.split('.')[0]}
-                          className="techIcon"
-                        />
-                      ))}
-                    </div>
-                    <img src={'/ShowTechs.svg'} alt="" className="techImage" />
-                  </div>
-                )}
-                </div>
-              </div>
-              <button onClick={handleNextProject} disabled={projects.length <= 1} className="nav-arrow next">&#9654;</button>
-            </div>
-          </div>
+          <SideTabs
+            categories={categories}
+            activeCategory={activeCategory}
+            handleCategoryClick={handleCategoryClick}
+          />
         </div>
-
-        {Object.keys(categories).map((category, index) => (
-          <button
-            key={category}
-            className={`tab ${activeCategory === category ? 'active' : ''}`}
-            onClick={() => handleCategoryClick(category)}
-            style={{ top: `${80 + index * 70}px` }}
-          >
-            {category}
-          </button>
-        ))}
-
       </div>
-    </div>
-    <DriveButton href={"https://drive.google.com/drive/folders/1-0YsYVJTUGH-wTqJiZqMHwOrWV2u1zHv?hl=pt-br"} />
-    <MusicPlayer />
+      <DriveButton href={"https://drive.google.com/drive/folders/1-0YsYVJTUGH-wTqJiZqMHwOrWV2u1zHv?hl=pt-br"} />
+      <MusicPlayer />
     </>
   );
 }
