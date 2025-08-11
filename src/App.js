@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import { portfolioData } from './data';
+import styles from './App.module.css';
 
 import MusicPlayer from './Components/MusicPlayer.jsx';
 import Stars from './Components/Stars.jsx';
@@ -41,10 +42,10 @@ function App() {
   return (
     <>
       <Stars />
-      <div className="portfolio-container">
-        <div className="book-cover">
-          <div className="back-page"></div>
-          <div className="notebook">
+      <div className={styles.portfolioContainer}>
+        <div className={styles.bookCover}>
+          <div className={styles.backPage}></div>
+          <div className={styles.notebook}>
             <LeftPage profile={profile} />
             <NotebookSpine />
             <RightPage

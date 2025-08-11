@@ -1,0 +1,104 @@
+.page {
+  flex: 1;
+  background-image: linear-gradient(#f5defd, var(--notebook-bg));
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.leftPage {
+  align-items: center;
+  text-align: center;
+  padding-bottom: 10px;
+  border: 2px solid #725A6E;
+}
+
+.profileSection {
+  margin-bottom: 25px;
+}
+
+.avatarContainer {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.avatar {
+  width: 230px;
+  height: 230px;
+}
+
+.leftPage h1 {
+  margin: 10px 0 5px 0;
+  color: var(--header-color);
+  font-size: 1.8rem;
+}
+
+.leftPage p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.skillsSection {
+  width: 80%;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 2px solid #725A6E;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.skillsHeader {
+  background-color: var(--skills-bg);
+  padding: 12px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.skillsHeader h3 {
+  margin: 0;
+  color: var(--header-color);
+  font-size: 1.3rem;
+}
+
+.skillsBody {
+  background-color: #fff;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-grow: 1;
+  outline: 2px solid #725A6E;
+}
+
+.skillsBody img {
+  width: 38px; 
+  height: 38px; 
+  object-fit: contain; 
+}
+
+.socialLinks {
+  padding-top: 10px;
+  display: flex;
+  margin: auto;
+  gap: 30px;
+}
+
+.socialIcon {
+  width: 37px; 
+  height: 37px; 
+  transition: transform 0.2s ease-in-out;
+}
+
+.socialIcon:hover {
+  transform: scale(1.15);
+  opacity: 0.9;
+}

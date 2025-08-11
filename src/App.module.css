@@ -1,0 +1,52 @@
+.portfolioContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.bookCover {
+  background-image: linear-gradient(#FD759B, var(--primary-pink));
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(70, 35, 35, 0.2);
+  z-index: 10;
+  position: relative;
+  width: 90vw;
+  max-width: 1100px;
+  aspect-ratio: 1100 / 650;
+  max-height: 90vh;
+  border: 2px solid #e75382;
+}
+
+.backPage {
+  position: absolute;
+  background-image: linear-gradient(#f5defd, var(--notebook-bg));
+  width: 94%;
+  height: 94%;
+  border-radius: 18px;
+  top: 51%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3; 
+  border: 1px solid #725A6E;
+}
+
+.notebook {
+  display: flex;
+  border-radius: 15px;
+  position: absolute;
+  z-index: 10;
+  width: 90%;
+  height: 93%;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.notebook h1,
+.notebook h2,
+.notebook h3 {
+  font-weight: 400;
+}
