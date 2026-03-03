@@ -1,9 +1,11 @@
 services:
   raquel_portifolio:
     container_name: raquel-portifolio
+    env_file:
+    - .env
     build:
       context: .
       dockerfile: Dockerfile
     restart: always
     ports:
-      - "3000:80"
+      - "${PORT}:${PORT}"
