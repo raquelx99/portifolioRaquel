@@ -65,9 +65,17 @@
   border: none;
 }
 
-.projectTags {
+.projectTags,
+.tagsContainer {
   text-align: center;
   margin-bottom: 15px;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
 }
 
 .tag {
@@ -76,7 +84,7 @@
   border-radius: 12px;
   font-size: 0.9rem;
   color: white;
-  margin-right: 5px;
+  margin: 0;
 }
 
 .tag.frontend { background-color: var(--marca-paginas); }
@@ -87,10 +95,12 @@
   color: var(--text-color);
   flex-grow: 1;
   max-height: 190px;
-  overflow-y: auto; 
+  overflow-y: auto;
+  overflow-x: hidden;
   padding-right: 10px;
   font-size: 0.9rem;
   line-height: 1.7;
+  -webkit-overflow-scrolling: touch;
 }
 
 .projectDisplayArea {
@@ -162,9 +172,155 @@
 }
 
 .prev {
-  left: -25px; 
+  left: -25px;
 }
 
 .next {
-  right: -25px; 
+  right: -25px;
+}
+
+@media (max-width: 1024px) {
+  .page {
+    padding: 20px 25px;
+  }
+
+  .rightPage {
+    padding-top: 50px;
+    padding-bottom: 20px;
+  }
+
+  .rightPage h2 {
+    font-size: 1.2rem;
+  }
+
+  .projectContent {
+    padding: 0 15px 15px;
+  }
+
+  .projectContent h3 {
+    font-size: 1.2rem;
+  }
+
+  .projectDescription {
+    max-height: 160px;
+    font-size: 0.85rem;
+  }
+
+  .navArrow {
+    font-size: 1.3rem;
+  }
+
+  .prev {
+    left: -15px;
+  }
+
+  .next {
+    right: -15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 15px 12px;
+    min-height: min(380px, 50vh);
+    flex: 1 1 auto;
+  }
+
+  .rightPage {
+    padding-top: 20px;
+    padding-bottom: 15px;
+  }
+
+  .rightPage h2 {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .projectContent {
+    padding: 0 10px 10px;
+  }
+
+  .projectContent h3 {
+    font-size: 1.1rem;
+    margin: 10px 0 8px 0;
+  }
+
+  .projectDisplayArea {
+    min-height: 200px;
+  }
+
+  .videoContainer {
+    max-width: 100%;
+  }
+
+  .projectDescription {
+    max-height: 200px;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    padding-right: 6px;
+    padding-left: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .navArrow {
+    top: 35%;
+    font-size: 1.5rem;
+    padding: 10px;
+    min-width: 48px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .navArrow:active:not(:disabled) {
+    opacity: 0.8;
+  }
+
+  .prev {
+    left: 2px;
+  }
+
+  .next {
+    right: 2px;
+  }
+
+  .techIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .techTitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .rightPage h2 {
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+
+  .projectContent h3 {
+    font-size: 1.05rem;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    margin: 2px;
+  }
+
+  .projectDescription {
+    max-height: 220px;
+    font-size: 0.875rem;
+  }
+
+  .navArrow {
+    font-size: 1.35rem;
+    min-width: 48px;
+    min-height: 48px;
+    padding: 8px;
+  }
 }

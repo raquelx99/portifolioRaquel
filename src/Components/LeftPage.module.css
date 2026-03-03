@@ -92,13 +92,152 @@
   gap: 30px;
 }
 
+.socialLinks a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 50%;
+  -webkit-tap-highlight-color: transparent;
+}
+
 .socialIcon {
-  width: 37px; 
-  height: 37px; 
+  width: 37px;
+  height: 37px;
   transition: transform 0.2s ease-in-out;
 }
 
 .socialIcon:hover {
   transform: scale(1.15);
   opacity: 0.9;
+}
+
+@media (max-width: 1024px) {
+  .page {
+    padding: 20px 25px;
+  }
+
+  .avatar {
+    width: 180px;
+    height: 180px;
+  }
+
+  .leftPage h1 {
+    font-size: 1.5rem;
+  }
+
+  .skillsSection {
+    width: 90%;
+  }
+
+  .skillsHeader h3 {
+    font-size: 1.1rem;
+  }
+
+  .skillsBody img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .skillsBody {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 15px 20px;
+    min-height: min(320px, 45vh);
+    flex: 1 1 auto;
+  }
+
+  .leftPage {
+    border-radius: 12px;
+  }
+
+  .profileSection {
+    margin-bottom: 15px;
+  }
+
+  .avatar {
+    width: 140px;
+    height: 140px;
+  }
+
+  .leftPage h1 {
+    font-size: 1.35rem;
+  }
+
+  .leftPage p {
+    font-size: 0.95rem;
+  }
+
+  .skillsSection {
+    width: 95%;
+  }
+
+  .skillsHeader h3 {
+    font-size: 1rem;
+  }
+
+  .skillsBody img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .skillsBody {
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .socialLinks {
+    gap: 24px;
+  }
+
+  .socialLinks a {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 8px;
+  }
+
+  .socialIcon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 14px 12px;
+  }
+
+  .avatar {
+    width: 110px;
+    height: 110px;
+  }
+
+  .leftPage h1 {
+    font-size: 1.2rem;
+  }
+
+  .leftPage p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .skillsBody img {
+    width: 26px;
+    height: 26px;
+  }
+
+  .socialLinks a {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 8px;
+  }
+
+  .socialIcon {
+    width: 28px;
+    height: 28px;
+  }
 }

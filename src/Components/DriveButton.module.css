@@ -11,19 +11,63 @@
 }
 
 .linkButton {
-  position: absolute; 
-  bottom: 10px;      
-  right: 1250px;       
-  z-index: 50;        
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 50;
 }
 
 .buttonImage {
-  width: 300px; 
+  width: 300px;
   height: auto;
   cursor: pointer;
-  transition: transform 0.2s ease-in-out; 
+  transition: transform 0.2s ease-in-out;
 }
 
 .linkButton:hover .buttonImage {
   animation: jump 0.6s ease-in-out;
+}
+
+@media (max-width: 1024px) {
+  .buttonImage {
+    width: 220px;
+  }
+
+  .linkButton {
+    bottom: 18px;
+    left: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .buttonImage {
+    width: 150px;
+  }
+
+  .linkButton {
+    bottom: calc(72px + env(safe-area-inset-bottom));
+    left: max(12px, env(safe-area-inset-left));
+  }
+}
+
+@media (max-width: 480px) {
+  .buttonImage {
+    width: 110px;
+  }
+
+  .linkButton {
+    bottom: calc(68px + env(safe-area-inset-bottom));
+    left: max(10px, env(safe-area-inset-left));
+  }
+}
+
+@media (max-width: 360px) {
+  .buttonImage {
+    width: 95px;
+  }
+
+  .linkButton {
+    bottom: calc(64px + env(safe-area-inset-bottom));
+    left: max(8px, env(safe-area-inset-left));
+  }
 }

@@ -1,0 +1,15 @@
+services:
+  raquel_portifolio:
+    container_name: raquel-portifolio
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3000:80"
+    networks:
+      wes-poupatempo-back_pnet:
+
+networks:
+  wes-poupatempo-back_pnet:
+  # external: true
