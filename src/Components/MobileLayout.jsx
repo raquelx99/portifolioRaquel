@@ -82,7 +82,7 @@ export default function MobileLayout({
             </div>
           )}
           <div
-            className={styles.description}
+            className={`${styles.description} ${!currentProject.videoUrl ? styles.descriptionExpanded : ''}`}
             dangerouslySetInnerHTML={{ __html: currentProject.description }}
           />
           {currentProject.technologies && currentProject.technologies.length > 0 && (

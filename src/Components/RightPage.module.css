@@ -48,12 +48,14 @@
   position: relative;
   width: 100%;
   max-width: 560px;
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 56.25%;
+  /* 16:9 */
   height: 0;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  margin: 0 auto; /* Centraliza o vídeo container */
+  margin: 0 auto;
+  /* Centraliza o vídeo container */
 }
 
 .videoContainer iframe {
@@ -87,8 +89,13 @@
   margin: 0;
 }
 
-.tag.frontend { background-color: var(--marca-paginas); }
-.tag.backend { background-color: var(--marca-paginas); }
+.tag.frontend {
+  background-color: var(--marca-paginas);
+}
+
+.tag.backend {
+  background-color: var(--marca-paginas);
+}
 
 .projectDescription {
   text-align: center;
@@ -97,22 +104,41 @@
   max-height: 190px;
   overflow-y: auto;
   overflow-x: hidden;
-  padding-right: 10px;
+  padding-right: 8px;
   font-size: 0.9rem;
   line-height: 1.7;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #c89fc4 transparent;
+}
+
+.projectDescription::-webkit-scrollbar {
+  width: 5px;
+}
+
+.projectDescription::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.projectDescription::-webkit-scrollbar-thumb {
+  background-color: #c89fc4;
+  border-radius: 10px;
+}
+
+.descriptionExpanded {
+  max-height: 400px;
 }
 
 .projectDisplayArea {
-  position: relative; 
+  position: relative;
   flex-grow: 1;
   width: 100%;
   display: flex;
-  align-items: center; 
+  align-items: center;
 }
 
 .technologiesSection {
-  position: relative; 
+  position: relative;
   margin-top: 20px;
   text-align: center;
 }
@@ -123,7 +149,7 @@
 }
 
 .techIconsContainer {
-  position: relative; 
+  position: relative;
   z-index: 2;
   display: flex;
   justify-content: center;
@@ -134,24 +160,24 @@
 }
 
 .techIcon {
-  width: 40px; 
+  width: 40px;
   height: 40px;
   padding-bottom: 25px;
   object-fit: contain;
 }
 
 .techImage {
-  display: block; 
-  width: 100%;   
+  display: block;
+  width: 100%;
   height: auto;
-  margin-top: -30px; 
-  position: relative; 
+  margin-top: -30px;
+  position: relative;
   z-index: 1;
 }
 
 .navArrow {
-  position: absolute; 
-  top: 40%; 
+  position: absolute;
+  top: 40%;
   transform: translateY(-50%);
   background: none;
   border: none;
@@ -204,6 +230,8 @@
   .projectDescription {
     max-height: 160px;
     font-size: 0.85rem;
+    scrollbar-width: thin;
+    scrollbar-color: #c89fc4 transparent;
   }
 
   .navArrow {

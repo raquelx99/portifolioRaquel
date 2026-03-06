@@ -186,6 +186,30 @@
   line-height: 1.6;
   color: #513E4E;
   margin-bottom: 16px;
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 6px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #c89fc4 transparent;
+}
+
+.description::-webkit-scrollbar {
+  width: 5px;
+}
+
+.description::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.description::-webkit-scrollbar-thumb {
+  background-color: #c89fc4;
+  border-radius: 10px;
+}
+
+.descriptionExpanded {
+  max-height: 500px;
 }
 
 .description p {

@@ -9,25 +9,26 @@ function RightPage({ categoryTitles, activeCategory, currentProject, projects, h
       <div className={`${styles.projectDisplayArea}`}>
         <button onClick={handlePrevProject} disabled={projects.length <= 1} className={`${styles.navArrow} ${styles.prev}`}>&#9664;</button>
         <div className={`${styles.projectContent}`}>
-          <div className={`${styles.projectMedia}`}>
-            <div className={`${styles.videoContainer}`}>
-              <iframe
-                // Usando o videoUrl do seu objeto de dados
-                src={`https://www.youtube.com/embed/${currentProject.videoUrl}`}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+          {currentProject.videoUrl && (
+            <div className={`${styles.projectMedia}`}>
+              <div className={`${styles.videoContainer}`}>
+                <iframe
+                  src={`https://www.youtube.com/embed/${currentProject.videoUrl}`}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
             </div>
-          </div>
+          )}
           <h3>{currentProject.title}</h3>
           {currentProject.tags.length > 0 && (
             <div className={styles.tagsContainer}>
               {currentProject.tags.map(tag => <span key={tag} className={`${styles.tag} ${styles[tag.toLowerCase().replace('-', '')]}`}>{tag}</span>)}
             </div>
           )}
-          <div className={styles.projectDescription}>
+          <div className={`${styles.projectDescription} ${!currentProject.videoUrl ? styles.descriptionExpanded : ''}`}>
             <div dangerouslySetInnerHTML={{ __html: currentProject.description }}></div>
             {currentProject.technologies && currentProject.technologies.length > 0 && (
               <div className={styles.technologiesSection}>

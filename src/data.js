@@ -97,6 +97,7 @@ export const portfolioData = {
         id: 6,
         title: "Still Me",
         tags: [],
+        videoUrl: "x1vMzpE4Ze8",
         description: `
           <p><strong>Still Me</strong> é um protótipo de jogo narrativo 2D que combina <strong>puzzles simbólicos</strong>, <strong>minigames</strong> e narrativa ambiental para retratar a jornada de <strong>Rafael</strong> após um acidente. A história se desenvolve ao longo de <strong>7 dias</strong>, em que o jogador atravessa tarefas cotidianas, fragmentos de memória, sonhos e interações via <strong>celular/diário</strong>, com progressão emocional culminando no retorno ao ateliê e na pintura final.</p>
           <p>As mecânicas foram pensadas para refletir o estado interno do personagem: instabilidade, bloqueios e pequenas vitórias ganham forma em interações de coordenação e precisão, com foco em <strong>feedback</strong> e consistência de experiência, reforçando o tema de identidade e recomeço.</p>
