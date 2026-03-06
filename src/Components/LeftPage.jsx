@@ -16,18 +16,16 @@ function LeftPage({ profile }) {
         <div className={styles.skillsHeader}>
           <h3>Linguagens e ferramentas</h3>
         </div>
+        <div className={styles.skillsBodySeparator}></div>
         <div className={styles.skillsBody}>
             <img src="/c-sharp.svg" alt="Ícone do C#" />
             <img src="/c++.svg" alt="Ícone do C++" />
-            <img src="/angular.svg" alt="Ícone do Angular" />
-            <img src="/react.svg" alt="Ícone do React" />
-            <img src="/typescript.svg" alt="Ícone do TypeScript" />
-            <img src="/javascript.svg" alt="Ícone do JavaScript" />
             <img src="/java.svg" alt="Ícone do Java" />
+        </div>
+        <div className={styles.skillsBody}>
             <img src="/unity.svg" alt="Ícone do Unity" />
             <img src="/godot.svg" alt="Ícone do Godot" />
             <img src="/game-maker.svg" alt="Ícone do Game Maker" />
-            <img src="/kotlin.svg" alt="Ícone do Kotlin" />
         </div>
       </div>
 
