@@ -40,6 +40,7 @@ export const portfolioData = {
         id: 3,
         title: "MedSim",
         tags: [],
+        videoUrl: 'vcza0sSFXx0',
         description: `
           <p>MedSim é um protótipo de simulador de atendimento médico em realidade virtual desenvolvido em Unity durante a Oficina de Férias do laboratório Vortex na Uniforem apenas 1 mês. O objetivo do projeto foi explorar o uso de VR no treinamento de estudantes de medicina, simulando o fluxo completo de um atendimento em consultório e incentivando o desenvolvimento do raciocínio clínico.</p>
 
