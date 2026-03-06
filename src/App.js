@@ -55,7 +55,7 @@ function App() {
           projectIndex={projectIndex}
           setProjectIndex={setProjectIndex}
         />
-        <DriveButton href="https://drive.google.com/drive/folders/1-0YsYVJTUGH-wTqJiZqMHwOrWV2u1zHv?hl=pt-br" />
+        <DriveButton href="https://raquelx99.itch.io/" />
         <MusicPlayer />
       </>
     );
@@ -86,7 +86,7 @@ function App() {
           />
         </div>
       </div>
-      <DriveButton href="https://drive.google.com/drive/folders/1-0YsYVJTUGH-wTqJiZqMHwOrWV2u1zHv?hl=pt-br" />
+      <DriveButton href="https://raquelx99.itch.io/" />
       <MusicPlayer />
     </>
   );
