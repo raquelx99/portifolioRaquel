@@ -12,9 +12,61 @@
   transform: scale(1.1);
 }
 
+.playerContainer:active {
+  transform: scale(0.98);
+}
+
 .playerImage {
-  width: 200px;
-  height: 200px;
+  width: clamp(48px, 12vw, 200px);
+  height: clamp(48px, 12vw, 200px);
   object-fit: contain;
   display: block;
+}
+
+@media (max-width: 1024px) {
+  .playerImage {
+    width: clamp(56px, 14vw, 160px);
+    height: clamp(56px, 14vw, 160px);
+  }
+
+  .playerContainer {
+    bottom: 18px;
+    right: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .playerContainer {
+    bottom: calc(72px + env(safe-area-inset-bottom));
+    right: max(12px, env(safe-area-inset-right));
+  }
+
+  .playerImage {
+    width: clamp(90px, 22vw, 140px);
+    height: clamp(90px, 22vw, 140px);
+  }
+}
+
+@media (max-width: 480px) {
+  .playerContainer {
+    bottom: calc(68px + env(safe-area-inset-bottom));
+    right: max(10px, env(safe-area-inset-right));
+  }
+
+  .playerImage {
+    width: clamp(80px, 20vw, 120px);
+    height: clamp(80px, 20vw, 120px);
+  }
+}
+
+@media (max-width: 360px) {
+  .playerContainer {
+    bottom: calc(64px + env(safe-area-inset-bottom));
+    right: max(8px, env(safe-area-inset-right));
+  }
+
+  .playerImage {
+    width: clamp(72px, 22vw, 100px);
+    height: clamp(72px, 22vw, 100px);
+  }
 }

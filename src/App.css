@@ -20,4 +20,28 @@ body {
   margin: 0;
   color: var(--text-color);
   padding: 10px;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 4px;
+    padding-left: max(4px, env(safe-area-inset-left));
+    padding-right: max(4px, env(safe-area-inset-right));
+  }
+}
+
+@media (max-width: 360px) {
+  body {
+    padding: 2px;
+    padding-left: max(2px, env(safe-area-inset-left));
+    padding-right: max(2px, env(safe-area-inset-right));
+  }
 }

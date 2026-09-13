@@ -4,6 +4,8 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .bookCover {
@@ -29,7 +31,7 @@
   top: 51%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 3; 
+  z-index: 3;
   border: 1px solid #725A6E;
 }
 
@@ -49,4 +51,125 @@
 .notebook h2,
 .notebook h3 {
   font-weight: 400;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .bookCover {
+    padding: 15px;
+    width: 95vw;
+    aspect-ratio: 4 / 3;
+  }
+
+  .notebook {
+    width: 92%;
+    height: 94%;
+  }
+}
+
+/* Mobile: flow-based layout so the book content is visible and scrollable */
+@media (max-width: 768px) {
+  .portfolioContainer {
+    padding: 8px;
+    padding-left: max(8px, env(safe-area-inset-left));
+    padding-right: max(8px, env(safe-area-inset-right));
+    padding-bottom: calc(80px + env(safe-area-inset-bottom));
+    align-items: flex-start;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: block;
+  }
+
+  .bookCover {
+    padding: 12px;
+    width: 100%;
+    max-width: none;
+    aspect-ratio: none;
+    height: auto;
+    min-height: min(80vh, 80dvh);
+    max-height: none;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  /* Back page fills the cover as a visual layer */
+  .backPage {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    width: auto;
+    height: auto;
+    transform: none;
+    border-radius: 14px;
+  }
+
+  /* Notebook in flow: takes height from content, so the book is visible */
+  .notebook {
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    min-height: min(75vh, 75dvh);
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 0;
+    overflow-y: visible;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+  }
+}
+
+/* Mobile portrait */
+@media (max-width: 480px) {
+  .portfolioContainer {
+    padding: 6px;
+    padding-left: max(6px, env(safe-area-inset-left));
+    padding-right: max(6px, env(safe-area-inset-right));
+    padding-bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+
+  .bookCover {
+    padding: 10px;
+    border-radius: 15px;
+    min-height: min(75vh, 75dvh);
+  }
+
+  .backPage {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 12px;
+  }
+
+  .notebook {
+    width: 100%;
+    min-height: min(70vh, 70dvh);
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  .portfolioContainer {
+    padding: 4px;
+    padding-bottom: calc(72px + env(safe-area-inset-bottom));
+  }
+
+  .bookCover {
+    padding: 8px;
+    border-radius: 12px;
+    min-height: min(70vh, 70dvh);
+  }
+
+  .backPage {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border-radius: 10px;
+  }
 }

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './MusicPlayer.module.css'; 
+import './MusicPlayer.module.css';
 
 import styles from './MusicPlayer.module.css';
 import musicSrc from '../assets/portifolio-music.mp3'
@@ -21,28 +21,35 @@ export default function MusicPlayer() {
       setCurrentImage(imageDefault);
       setIsPlaying(false);
     } else {
-      audioRef.current.currentTime = 0; 
-      audioRef.current.play();
-      setIsPlaying(true);
-
-      intervalRef.current = setInterval(() => {
-        setCurrentImage((prevImage) =>
-          prevImage === imageAnim1 ? imageAnim2 : imageAnim1
-        );
-      }, 400);
+      audioRef.current.currentTime = 0;
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setIsPlaying(true);
+            intervalRef.current = setInterval(() => {
+              setCurrentImage((prevImage) =>
+                prevImage === imageAnim1 ? imageAnim2 : imageAnim1
+              );
+            }, 400);
+          })
+          .catch(() => {
+            // Play foi bloqueado ou interrompido — não faz nada
+          });
+      }
     }
   };
 
   useEffect(() => {
     const audio = audioRef.current;
-    
+
     audio.loop = true;
 
     return () => {
       audio.pause();
       clearInterval(intervalRef.current);
     };
-  }, []); 
+  }, []);
 
   return (
     <div className={styles.playerContainer} onClick={togglePlay}>
