@@ -2,9 +2,9 @@ import React from 'react';
 import styles from './MobileLayout.module.css';
 
 const categoryTitles = {
-  JOGOS: 'Projetos – Desenvolvimento de Jogos',
-  WEB: 'Projetos – Desenvolvimento Web',
-  MOBILE: 'Projetos – Desenvolvimento Mobile',
+  'JOGOS & XR': 'Projetos de Jogos & XR',
+  'SOFTWARE & APLICAÇÕES': 'Projetos de Software & Aplicações',
+  'PUBLICAÇÕES': 'Publicações Acadêmicas',
 };
 
 export default function MobileLayout({
@@ -56,7 +56,7 @@ export default function MobileLayout({
 
         {/* Category title */}
         <section className={styles.tabsSection}>
-          <h2 className={styles.categoryTitle}>{categoryTitles[activeCategory]}</h2>
+          <h2 className={styles.categoryTitle}>{categoryTitles[activeCategory] || activeCategory}</h2>
         </section>
 
         {/* Project */}

@@ -35,38 +35,39 @@
   }
 }
 
+/* Below 768px the layout scrolls (MobileLayout), so the mascot is
+   pinned in its own strip just above the fixed tab bar (~68px tall)
+   instead of floating over page content while the user scrolls. */
 @media (max-width: 768px) {
   .playerContainer {
-    bottom: calc(72px + env(safe-area-inset-bottom));
+    bottom: calc(76px + env(safe-area-inset-bottom));
     right: max(12px, env(safe-area-inset-right));
   }
 
   .playerImage {
-    width: clamp(90px, 22vw, 140px);
-    height: clamp(90px, 22vw, 140px);
+    width: 64px;
+    height: 64px;
   }
 }
 
 @media (max-width: 480px) {
   .playerContainer {
-    bottom: calc(68px + env(safe-area-inset-bottom));
     right: max(10px, env(safe-area-inset-right));
   }
 
   .playerImage {
-    width: clamp(80px, 20vw, 120px);
-    height: clamp(80px, 20vw, 120px);
+    width: 56px;
+    height: 56px;
   }
 }
 
 @media (max-width: 360px) {
   .playerContainer {
-    bottom: calc(64px + env(safe-area-inset-bottom));
     right: max(8px, env(safe-area-inset-right));
   }
 
   .playerImage {
-    width: clamp(72px, 22vw, 100px);
-    height: clamp(72px, 22vw, 100px);
+    width: 48px;
+    height: 48px;
   }
 }

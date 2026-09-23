@@ -5,7 +5,7 @@ import styles from './RightPage.module.css';
 function RightPage({ categoryTitles, activeCategory, currentProject, projects, handlePrevProject, handleNextProject }) {
   return (
     <div className={`${styles.page} ${styles.rightPage}`}>
-      <h2>{categoryTitles[activeCategory]}</h2>
+      <h2>{categoryTitles[activeCategory] || activeCategory}</h2>
       <div className={`${styles.projectDisplayArea}`}>
         <button onClick={handlePrevProject} disabled={projects.length <= 1} className={`${styles.navArrow} ${styles.prev}`}>&#9664;</button>
         <div className={`${styles.projectContent}`}>

@@ -14,12 +14,14 @@ import NotebookSpine from './Components/NotebookSpine.jsx';
 import SideTabs from './Components/SideTabs.jsx';
 import MobileLayout from './Components/MobileLayout.jsx';
 
+const { profile, categories } = portfolioData;
+const categoryKeys = Object.keys(categories);
+
 function App() {
-  const [activeCategory, setActiveCategory] = useState('JOGOS');
+  const [activeCategory, setActiveCategory] = useState(categoryKeys[0]);
   const [projectIndex, setProjectIndex] = useState(0);
   const isMobile = useIsMobile();
 
-  const { profile, categories } = portfolioData;
   const projects = categories[activeCategory];
   const currentProject = projects[projectIndex];
 
@@ -37,9 +39,9 @@ function App() {
   };
 
   const categoryTitles = {
-    JOGOS: "PROJETOS DESENVOLVIMENTO DE JOGOS",
-    WEB: "PROJETOS DESENVOLVIMENTO WEB",
-    MOBILE: "PROJETOS DESENVOLVIMENTO MOBILE"
+    "JOGOS & XR": "PROJETOS DE JOGOS & XR",
+    "SOFTWARE & APLICAÇÕES": "PROJETOS DE SOFTWARE & APLICAÇÕES",
+    "PUBLICAÇÕES": "PUBLICAÇÕES ACADÊMICAS"
   };
 
   if (isMobile) {
