@@ -1,7 +1,7 @@
 // src/App.js
 import React, { useState } from 'react';
 import './App.css';
-import { portfolioData } from './data';
+import { portfolioData, ABOUT_CATEGORY } from './data';
 import styles from './App.module.css';
 import { useIsMobile } from './hooks/useIsMobile';
 
@@ -14,12 +14,14 @@ import NotebookSpine from './Components/NotebookSpine.jsx';
 import SideTabs from './Components/SideTabs.jsx';
 import MobileLayout from './Components/MobileLayout.jsx';
 
+const { profile, categories } = portfolioData;
+const categoryKeys = Object.keys(categories);
+
 function App() {
-  const [activeCategory, setActiveCategory] = useState('JOGOS');
+  const [activeCategory, setActiveCategory] = useState(categoryKeys[0]);
   const [projectIndex, setProjectIndex] = useState(0);
   const isMobile = useIsMobile();
 
-  const { profile, categories } = portfolioData;
   const projects = categories[activeCategory];
   const currentProject = projects[projectIndex];
 
@@ -37,9 +39,9 @@ function App() {
   };
 
   const categoryTitles = {
-    JOGOS: "PROJETOS DESENVOLVIMENTO DE JOGOS",
-    WEB: "PROJETOS DESENVOLVIMENTO WEB",
-    MOBILE: "PROJETOS DESENVOLVIMENTO MOBILE"
+    "JOGOS & XR": "PROJETOS DE JOGOS & XR",
+    "SOFTWARE & APLICAÇÕES": "PROJETOS DE SOFTWARE & APLICAÇÕES",
+    [ABOUT_CATEGORY]: "SOBRE MIM"
   };
 
   if (isMobile) {
@@ -68,17 +70,35 @@ function App() {
         <div className={styles.bookCover}>
           <div className={styles.backPage}></div>
           <div className={styles.notebook}>
-            <LeftPage profile={profile} />
+            <LeftPage
+              profile={profile}
+              currentProject={currentProject}
+            />
             <NotebookSpine />
             <RightPage
               categoryTitles={categoryTitles}
               activeCategory={activeCategory}
               currentProject={currentProject}
-              projects={projects}
-              handlePrevProject={handlePrevProject}
-              handleNextProject={handleNextProject}
             />
           </div>
+          {projects.length > 1 && (
+            <>
+              <button
+                onClick={handlePrevProject}
+                className={`${styles.bookNavArrow} ${styles.bookNavPrev}`}
+                aria-label="Projeto anterior"
+              >
+                &#9664;
+              </button>
+              <button
+                onClick={handleNextProject}
+                className={`${styles.bookNavArrow} ${styles.bookNavNext}`}
+                aria-label="Próximo projeto"
+              >
+                &#9654;
+              </button>
+            </>
+          )}
           <SideTabs
             categories={categories}
             activeCategory={activeCategory}

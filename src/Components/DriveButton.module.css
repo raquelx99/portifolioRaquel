@@ -39,35 +39,40 @@
   }
 }
 
+/* Below 768px the layout scrolls (MobileLayout), so the mascot is
+   pinned in its own strip just above the fixed tab bar (~68px tall)
+   instead of floating over page content while the user scrolls. */
 @media (max-width: 768px) {
   .buttonImage {
-    width: 150px;
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
   }
 
   .linkButton {
-    bottom: calc(72px + env(safe-area-inset-bottom));
+    bottom: calc(76px + env(safe-area-inset-bottom));
     left: max(12px, env(safe-area-inset-left));
   }
 }
 
 @media (max-width: 480px) {
   .buttonImage {
-    width: 110px;
+    width: 56px;
+    height: 56px;
   }
 
   .linkButton {
-    bottom: calc(68px + env(safe-area-inset-bottom));
     left: max(10px, env(safe-area-inset-left));
   }
 }
 
 @media (max-width: 360px) {
   .buttonImage {
-    width: 95px;
+    width: 48px;
+    height: 48px;
   }
 
   .linkButton {
-    bottom: calc(64px + env(safe-area-inset-bottom));
     left: max(8px, env(safe-area-inset-left));
   }
 }

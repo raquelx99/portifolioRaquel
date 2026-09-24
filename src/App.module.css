@@ -53,6 +53,38 @@
   font-weight: 400;
 }
 
+/* Prev/next arrows: siblings of .notebook (not nested inside it) so their
+   vertical position is tied to the notebook's own (fixed) center instead of
+   to either page's content height, which used to make prev/next drift out
+   of alignment depending on how much text a project had.
+   They sit inset from the notebook edges (not floating in the outer pink
+   gutter) because the side tabs overlap ~28px into the page on the right —
+   any arrow in that outer gutter ends up visually stuck under a tab. */
+.bookNavArrow {
+  position: absolute;
+  top: 48%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 12;
+  transition: color 0.2s;
+}
+
+.bookNavArrow:hover {
+  color: var(--primary-pink);
+}
+
+.bookNavPrev {
+  left: calc(5% + 12px);
+}
+
+.bookNavNext {
+  right: calc(5% + 48px);
+}
+
 /* Tablet */
 @media (max-width: 1024px) {
   .bookCover {
@@ -64,6 +96,18 @@
   .notebook {
     width: 92%;
     height: 94%;
+  }
+
+  .bookNavArrow {
+    font-size: 1.3rem;
+  }
+
+  .bookNavPrev {
+    left: calc(4% + 8px);
+  }
+
+  .bookNavNext {
+    right: calc(4% + 36px);
   }
 }
 

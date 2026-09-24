@@ -9,7 +9,10 @@
   flex-direction: column;
   background: linear-gradient(#FD759B, #FE82AA);
   padding: 0 max(12px, env(safe-area-inset-left)) max(12px, env(safe-area-inset-right));
-  padding-bottom: calc(72px + env(safe-area-inset-bottom));
+  /* Reserves space for the fixed tab bar (~68px) plus the floating
+     mascots that sit just above it, so scrolled content never ends up
+     underneath them. */
+  padding-bottom: calc(150px + env(safe-area-inset-bottom));
   box-sizing: border-box;
 }
 
@@ -156,6 +159,7 @@
   width: 100%;
   height: 100%;
   border: none;
+  object-fit: cover;
 }
 
 .projectTitle {
@@ -228,6 +232,25 @@
 
 .description li {
   margin-bottom: 4px;
+}
+
+.gallery {
+  margin-bottom: 16px;
+}
+
+.galleryGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.galleryImage {
+  width: 100px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .techsTitle {
@@ -319,15 +342,20 @@
   min-width: 0;
   max-width: 140px;
   min-height: 48px;
-  padding: 0 14px;
+  padding: 6px 8px;
   border-radius: 14px;
   font-family: 'Itim', cursive;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 0.72rem;
+  line-height: 1.15;
+  text-align: center;
   cursor: pointer;
   border: 2px solid #725A6E;
   -webkit-tap-highlight-color: transparent;
   transition: transform 0.15s, box-shadow 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tab {

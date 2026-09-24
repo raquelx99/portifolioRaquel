@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './MobileLayout.module.css';
+import { ABOUT_CATEGORY } from '../data';
 
 const categoryTitles = {
-  JOGOS: 'Projetos – Desenvolvimento de Jogos',
-  WEB: 'Projetos – Desenvolvimento Web',
-  MOBILE: 'Projetos – Desenvolvimento Mobile',
+  'JOGOS & XR': 'Projetos de Jogos & XR',
+  'SOFTWARE & APLICAÇÕES': 'Projetos de Software & Aplicações',
+  [ABOUT_CATEGORY]: 'Sobre mim',
 };
 
 export default function MobileLayout({
@@ -17,6 +18,7 @@ export default function MobileLayout({
   setProjectIndex,
 }) {
   const currentProject = projects[projectIndex];
+  const isAbout = currentProject.isAbout;
 
   const goPrev = () => setProjectIndex((i) => (i - 1 + projects.length) % projects.length);
   const goNext = () => setProjectIndex((i) => (i + 1) % projects.length);
@@ -56,44 +58,71 @@ export default function MobileLayout({
 
         {/* Category title */}
         <section className={styles.tabsSection}>
-          <h2 className={styles.categoryTitle}>{categoryTitles[activeCategory]}</h2>
+          <h2 className={styles.categoryTitle}>{categoryTitles[activeCategory] || activeCategory}</h2>
         </section>
 
         {/* Project */}
         <section className={styles.project}>
-          {currentProject.videoUrl && (
-            <div className={styles.videoWrap}>
-              <iframe
-                src={`https://www.youtube.com/embed/${currentProject.videoUrl}`}
-                title="Vídeo do projeto"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className={styles.video}
+          {isAbout ? (
+            <p className={`${styles.description} ${styles.descriptionExpanded}`}>
+              Use as setas para conhecer minha trajetória, formação acadêmica e experiência profissional.
+            </p>
+          ) : (
+            <>
+              {(currentProject.videoUrl || currentProject.imageUrl) && (
+                <div className={styles.videoWrap}>
+                  {currentProject.videoUrl ? (
+                    <iframe
+                      src={`https://www.youtube.com/embed/${currentProject.videoUrl}`}
+                      title="Vídeo do projeto"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className={styles.video}
+                    />
+                  ) : (
+                    <img src={currentProject.imageUrl} alt={currentProject.title} className={styles.video} />
+                  )}
+                </div>
+              )}
+              <h3 className={styles.projectTitle}>{currentProject.title}</h3>
+              {currentProject.tags && currentProject.tags.length > 0 && (
+                <div className={styles.tags}>
+                  {currentProject.tags.map((tag) => (
+                    <span key={tag} className={styles.tag}>{tag}</span>
+                  ))}
+                </div>
+              )}
+              <div
+                className={`${styles.description} ${!currentProject.videoUrl && !currentProject.imageUrl ? styles.descriptionExpanded : ''}`}
+                dangerouslySetInnerHTML={{ __html: currentProject.description }}
               />
-            </div>
-          )}
-          <h3 className={styles.projectTitle}>{currentProject.title}</h3>
-          {currentProject.tags && currentProject.tags.length > 0 && (
-            <div className={styles.tags}>
-              {currentProject.tags.map((tag) => (
-                <span key={tag} className={styles.tag}>{tag}</span>
-              ))}
-            </div>
-          )}
-          <div
-            className={`${styles.description} ${!currentProject.videoUrl ? styles.descriptionExpanded : ''}`}
-            dangerouslySetInnerHTML={{ __html: currentProject.description }}
-          />
-          {currentProject.technologies && currentProject.technologies.length > 0 && (
-            <div className={styles.techs}>
-              <h4 className={styles.techsTitle}>Tecnologias utilizadas</h4>
-              <div className={styles.techIcons}>
-                {currentProject.technologies.map((iconName, i) => (
-                  <img key={i} src={`/${iconName}`} alt="" className={styles.techIcon} />
-                ))}
-              </div>
-            </div>
+              {currentProject.images && currentProject.images.length > 0 && (
+                <div className={styles.gallery}>
+                  <h4 className={styles.techsTitle}>Galeria</h4>
+                  <div className={styles.galleryGrid}>
+                    {currentProject.images.map((img, i) => (
+                      <img
+                        key={i}
+                        src={img}
+                        alt={`${currentProject.title} ${i + 1}`}
+                        className={styles.galleryImage}
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
+              {currentProject.technologies && currentProject.technologies.length > 0 && (
+                <div className={styles.techs}>
+                  <h4 className={styles.techsTitle}>Tecnologias utilizadas</h4>
+                  <div className={styles.techIcons}>
+                    {currentProject.technologies.map((iconName, i) => (
+                      <img key={i} src={`/${iconName}`} alt="" className={styles.techIcon} />
+                    ))}
+                  </div>
+                </div>
+              )}
+            </>
           )}
 
           {projects.length > 1 && (

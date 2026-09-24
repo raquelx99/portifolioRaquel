@@ -11,30 +11,38 @@
   pointer-events: auto;
 }
 
+.tabsWrapper {
+  --tab-top-start: 80px;
+  --tab-top-gap: 74px;
+}
+
 .tab {
   position: absolute;
   left: 100%;
-  margin-left: -80px;
-  width: 140px;
-  height: 60px;
-  top: 80px;
+  margin-left: -85px;
+  width: 150px;
+  min-height: 60px;
+  top: calc(var(--tab-top-start) + (var(--tab-index, 0) * var(--tab-top-gap)));
   background-color: var(--marca-paginas);
   color: var(--text-color);
   font-family: 'Itim', cursive;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 0.85rem;
+  line-height: 1.15;
+  white-space: normal;
+  word-break: break-word;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  clip-path: polygon(0 0, 100% 0, 85% 50%, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 90% 50%, 100% 100%, 0 100%);
   border-radius: 5px;
-  padding-right: 15px;
+  padding: 6px 20px 6px 8px;
   transition: all 0.2s ease-out;
   border: 2px solid #725A6E;
   z-index: 5;
 }
-
-.tab:nth-child(1) { top: 80px; }
-.tab:nth-child(2) { top: 150px; }
-.tab:nth-child(3) { top: 220px; }
 
 .tab:hover:not(.active) {
   transform: translateX(-5px);
@@ -49,16 +57,18 @@
 
 /* Tablet: tabs a bit smaller and closer */
 @media (max-width: 1024px) {
-  .tab {
-    width: 120px;
-    height: 52px;
-    margin-left: -70px;
-    font-size: 0.9rem;
+  .tabsWrapper {
+    --tab-top-start: 70px;
+    --tab-top-gap: 62px;
   }
 
-  .tab:nth-child(1) { top: 70px; }
-  .tab:nth-child(2) { top: 130px; }
-  .tab:nth-child(3) { top: 190px; }
+  .tab {
+    width: 130px;
+    min-height: 52px;
+    margin-left: -76px;
+    font-size: 0.75rem;
+    padding: 4px 16px 4px 6px;
+  }
 }
 
 /* Mobile: fixed bottom tab bar, always visible */
@@ -90,24 +100,19 @@
     max-width: 140px;
     width: auto;
     min-height: 48px;
-    height: 48px;
+    height: auto;
     margin: 0;
     margin-left: 0;
     clip-path: none;
     border-radius: 14px;
-    padding: 0 14px;
-    font-size: 0.9rem;
+    padding: 6px 8px;
+    font-size: 0.78rem;
+    line-height: 1.15;
     top: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     -webkit-tap-highlight-color: transparent;
-  }
-
-  .tab:nth-child(1),
-  .tab:nth-child(2),
-  .tab:nth-child(3) {
-    top: auto;
   }
 
   .tab:hover:not(.active) {
@@ -132,9 +137,9 @@
 
   .tab {
     min-height: 46px;
-    height: 46px;
-    font-size: 0.82rem;
-    padding: 0 10px;
+    height: auto;
+    font-size: 0.72rem;
+    padding: 5px 6px;
     border-radius: 12px;
   }
 }
@@ -147,8 +152,8 @@
 
   .tab {
     min-height: 44px;
-    height: 44px;
-    font-size: 0.78rem;
-    padding: 0 6px;
+    height: auto;
+    font-size: 0.68rem;
+    padding: 4px 4px;
   }
 }
