@@ -1,7 +1,7 @@
 // src/App.js
 import React, { useState } from 'react';
 import './App.css';
-import { portfolioData } from './data';
+import { portfolioData, ABOUT_CATEGORY } from './data';
 import styles from './App.module.css';
 import { useIsMobile } from './hooks/useIsMobile';
 
@@ -41,7 +41,7 @@ function App() {
   const categoryTitles = {
     "JOGOS & XR": "PROJETOS DE JOGOS & XR",
     "SOFTWARE & APLICAÇÕES": "PROJETOS DE SOFTWARE & APLICAÇÕES",
-    "PUBLICAÇÕES": "PUBLICAÇÕES ACADÊMICAS"
+    [ABOUT_CATEGORY]: "SOBRE MIM"
   };
 
   if (isMobile) {
@@ -70,17 +70,35 @@ function App() {
         <div className={styles.bookCover}>
           <div className={styles.backPage}></div>
           <div className={styles.notebook}>
-            <LeftPage profile={profile} />
+            <LeftPage
+              profile={profile}
+              currentProject={currentProject}
+            />
             <NotebookSpine />
             <RightPage
               categoryTitles={categoryTitles}
               activeCategory={activeCategory}
               currentProject={currentProject}
-              projects={projects}
-              handlePrevProject={handlePrevProject}
-              handleNextProject={handleNextProject}
             />
           </div>
+          {projects.length > 1 && (
+            <>
+              <button
+                onClick={handlePrevProject}
+                className={`${styles.bookNavArrow} ${styles.bookNavPrev}`}
+                aria-label="Projeto anterior"
+              >
+                &#9664;
+              </button>
+              <button
+                onClick={handleNextProject}
+                className={`${styles.bookNavArrow} ${styles.bookNavNext}`}
+                aria-label="Próximo projeto"
+              >
+                &#9654;
+              </button>
+            </>
+          )}
           <SideTabs
             categories={categories}
             activeCategory={activeCategory}

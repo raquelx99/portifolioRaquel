@@ -26,7 +26,10 @@
 
 .projectContent {
   width: 100%;
-  padding: 0 25px 20px;
+  /* Extra right padding reserves a clear channel for the page-turn arrow,
+     which sits outside this element, between the description's scrollbar
+     and the side tabs. */
+  padding: 0 50px 20px 25px;
   display: flex;
   flex-direction: column;
 }
@@ -58,13 +61,15 @@
   /* Centraliza o vídeo container */
 }
 
-.videoContainer iframe {
+.videoContainer iframe,
+.videoContainer img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   border: none;
+  object-fit: cover;
 }
 
 .projectTags,
@@ -176,36 +181,6 @@
   z-index: 1;
 }
 
-.navArrow {
-  position: absolute;
-  top: 40%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: var(--text-color);
-  font-size: 1.5rem;
-  cursor: pointer;
-  z-index: 30;
-  transition: color 0.2s;
-}
-
-.navArrow:hover:not(:disabled) {
-  color: var(--primary-pink);
-}
-
-.navArrow:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.prev {
-  left: -25px;
-}
-
-.next {
-  right: -25px;
-}
-
 @media (max-width: 1024px) {
   .page {
     padding: 20px 25px;
@@ -235,17 +210,6 @@
     scrollbar-color: #c89fc4 transparent;
   }
 
-  .navArrow {
-    font-size: 1.3rem;
-  }
-
-  .prev {
-    left: -15px;
-  }
-
-  .next {
-    right: -15px;
-  }
 }
 
 @media (max-width: 768px) {
@@ -291,30 +255,6 @@
     -webkit-overflow-scrolling: touch;
   }
 
-  .navArrow {
-    top: 35%;
-    font-size: 1.5rem;
-    padding: 10px;
-    min-width: 48px;
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .navArrow:active:not(:disabled) {
-    opacity: 0.8;
-  }
-
-  .prev {
-    left: 2px;
-  }
-
-  .next {
-    right: 2px;
-  }
-
   .techIcon {
     width: 32px;
     height: 32px;
@@ -344,12 +284,5 @@
   .projectDescription {
     max-height: 220px;
     font-size: 0.875rem;
-  }
-
-  .navArrow {
-    font-size: 1.35rem;
-    min-width: 48px;
-    min-height: 48px;
-    padding: 8px;
   }
 }

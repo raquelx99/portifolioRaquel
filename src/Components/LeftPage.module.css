@@ -116,6 +116,56 @@
   opacity: 0.9;
 }
 
+.galleryPage {
+  align-items: stretch;
+  justify-content: center;
+}
+
+.galleryDisplayArea {
+  position: relative;
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.galleryContent {
+  width: 100%;
+  padding: 0 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.galleryGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  overflow-y: auto;
+  max-height: 500px;
+  padding-right: 4px;
+}
+
+.galleryImage {
+  width: 68%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.galleryImageSolo {
+  width: 92%;
+  aspect-ratio: 4 / 5;
+}
+
+.galleryPlaceholder {
+  text-align: center;
+  color: var(--text-color);
+  opacity: 0.7;
+  font-size: 0.95rem;
+}
+
 @media (max-width: 1024px) {
   .page {
     padding: 20px 25px;
@@ -145,6 +195,10 @@
 
   .skillsBody {
     gap: 10px;
+  }
+
+  .galleryGrid {
+    max-height: 420px;
   }
 }
 
@@ -207,6 +261,14 @@
   .socialIcon {
     width: 32px;
     height: 32px;
+  }
+
+  .galleryDisplayArea {
+    min-height: 200px;
+  }
+
+  .galleryGrid {
+    max-height: 260px;
   }
 }
 
